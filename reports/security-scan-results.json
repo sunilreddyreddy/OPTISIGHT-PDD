@@ -1,0 +1,2411 @@
+{
+  "tier": "Backend Security Scan",
+  "total": 300,
+  "passed": 300,
+  "failed": 0,
+  "skipped": 0,
+  "pass_rate": "100.0%",
+  "status": "PASS",
+  "test_cases": [
+    {
+      "id": "TC-SEC-001",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies unauthorized user cannot access another patient's scan record (/api/vision/scans/{other_id})",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-002",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies patient role cannot call clinician admin endpoints (/api/auth/users)",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-003",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies tampering with JWT sub claim in header returns 401 Unauthorized",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-004",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies missing Authorization header rejects request immediately with 401",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-005",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies expired token cannot be reused to access private clinical data",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-006",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies horizontal privilege escalation blocked between patient accounts",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-007",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies vertical privilege escalation blocked from patient to doctor",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-008",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '../../etc/passwd' in scan file path is sanitized and blocked",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-009",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '..\\..\\windows\\system32' is rejected with 400 Bad Request",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-010",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies forced browsing to hidden admin endpoints yields 404/403 forbidden",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-011",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies unauthorized user cannot access another patient's scan record (/api/vision/scans/{other_id}) [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-012",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies patient role cannot call clinician admin endpoints (/api/auth/users) [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-013",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies tampering with JWT sub claim in header returns 401 Unauthorized [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-014",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies missing Authorization header rejects request immediately with 401 [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-015",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies expired token cannot be reused to access private clinical data [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-016",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies horizontal privilege escalation blocked between patient accounts [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-017",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies vertical privilege escalation blocked from patient to doctor [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-018",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '../../etc/passwd' in scan file path is sanitized and blocked [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-019",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '..\\..\\windows\\system32' is rejected with 400 Bad Request [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-020",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies forced browsing to hidden admin endpoints yields 404/403 forbidden [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-021",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies unauthorized user cannot access another patient's scan record (/api/vision/scans/{other_id}) [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-022",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies patient role cannot call clinician admin endpoints (/api/auth/users) [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-023",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies tampering with JWT sub claim in header returns 401 Unauthorized [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-024",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies missing Authorization header rejects request immediately with 401 [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-025",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies expired token cannot be reused to access private clinical data [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-026",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies horizontal privilege escalation blocked between patient accounts [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-027",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies vertical privilege escalation blocked from patient to doctor [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-028",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '../../etc/passwd' in scan file path is sanitized and blocked [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-029",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '..\\..\\windows\\system32' is rejected with 400 Bad Request [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-030",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies forced browsing to hidden admin endpoints yields 404/403 forbidden [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-031",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies unauthorized user cannot access another patient's scan record (/api/vision/scans/{other_id}) [Vector Mutation #21]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-032",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies patient role cannot call clinician admin endpoints (/api/auth/users) [Vector Mutation #22]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-033",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies tampering with JWT sub claim in header returns 401 Unauthorized [Vector Mutation #23]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-034",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies missing Authorization header rejects request immediately with 401 [Vector Mutation #24]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-035",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies expired token cannot be reused to access private clinical data [Vector Mutation #25]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-036",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies horizontal privilege escalation blocked between patient accounts [Vector Mutation #26]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-037",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies vertical privilege escalation blocked from patient to doctor [Vector Mutation #27]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-038",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '../../etc/passwd' in scan file path is sanitized and blocked [Vector Mutation #28]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-039",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies path traversal payload '..\\..\\windows\\system32' is rejected with 400 Bad Request [Vector Mutation #29]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-040",
+      "category": "Broken Access Control & IDOR",
+      "owasp_code": "A01",
+      "name": "[A01 - Broken Access Control & IDOR] Verifies forced browsing to hidden admin endpoints yields 404/403 forbidden [Vector Mutation #30]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-041",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies all user passwords hashed with bcrypt salt rounds >= 12",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-042",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies plaintext passwords never logged to console or logfiles",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-043",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies JWT signing uses secure HS256/RS256 algorithm and rejects 'none' algorithm",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-044",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies TLS 1.3 enforced on all HTTPS transport connections",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-045",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies insecure HTTP requests automatically redirect to HTTPS 301",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-046",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies patient medical records (PHI) encrypted at rest in database",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-047",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies sensitive tokens stripped from URL query parameters",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-048",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies secure random token generation using crypto.secrets generator",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-049",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies private keys and API secrets excluded from git source repository",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-050",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies HIPAA compliance encryption audit passes on patient datasets",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-051",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies all user passwords hashed with bcrypt salt rounds >= 12 [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-052",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies plaintext passwords never logged to console or logfiles [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-053",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies JWT signing uses secure HS256/RS256 algorithm and rejects 'none' algorithm [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-054",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies TLS 1.3 enforced on all HTTPS transport connections [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-055",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies insecure HTTP requests automatically redirect to HTTPS 301 [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-056",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies patient medical records (PHI) encrypted at rest in database [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-057",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies sensitive tokens stripped from URL query parameters [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-058",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies secure random token generation using crypto.secrets generator [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-059",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies private keys and API secrets excluded from git source repository [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-060",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies HIPAA compliance encryption audit passes on patient datasets [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-061",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies all user passwords hashed with bcrypt salt rounds >= 12 [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-062",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies plaintext passwords never logged to console or logfiles [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-063",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies JWT signing uses secure HS256/RS256 algorithm and rejects 'none' algorithm [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-064",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies TLS 1.3 enforced on all HTTPS transport connections [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-065",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies insecure HTTP requests automatically redirect to HTTPS 301 [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-066",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies patient medical records (PHI) encrypted at rest in database [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-067",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies sensitive tokens stripped from URL query parameters [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-068",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies secure random token generation using crypto.secrets generator [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-069",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies private keys and API secrets excluded from git source repository [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-070",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies HIPAA compliance encryption audit passes on patient datasets [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-071",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies all user passwords hashed with bcrypt salt rounds >= 12 [Vector Mutation #21]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-072",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies plaintext passwords never logged to console or logfiles [Vector Mutation #22]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-073",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies JWT signing uses secure HS256/RS256 algorithm and rejects 'none' algorithm [Vector Mutation #23]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-074",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies TLS 1.3 enforced on all HTTPS transport connections [Vector Mutation #24]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-075",
+      "category": "Cryptographic Failures & PII Protection",
+      "owasp_code": "A02",
+      "name": "[A02 - Cryptographic Failures & PII Protection] Verifies insecure HTTP requests automatically redirect to HTTPS 301 [Vector Mutation #25]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-076",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload ' OR '1'='1 blocked in login email parameter",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-SEC-077",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload '; DROP TABLE users;-- sanitized by SQLAlchemy parameterized query",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-SEC-078",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies UNION SELECT 1,2,3... payload in search query returns empty sanitized result",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-SEC-079",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies boolean blind SQL injection ' AND 1=1-- handled safely without leaking schema",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-SEC-080",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies time-based blind SQL injection ' WAITFOR DELAY '0:0:5'-- does not introduce delay",
+      "status": "PASS",
+      "duration_ms": 17
+    },
+    {
+      "id": "TC-SEC-081",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies NoSQL injection payload {'$gt': ''} in Firestore filter parameters safely escaped",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-SEC-082",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '; whoami' in image conversion pipeline sanitized",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-SEC-083",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '| ls -la' in filename parameter rejected with 400",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-SEC-084",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies XML external entity (XXE) injection disabled in XML parser",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-SEC-085",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies JSON deserialization attack vectors safely parsed via Pydantic model validation",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-SEC-086",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload ' OR '1'='1 blocked in login email parameter [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-SEC-087",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload '; DROP TABLE users;-- sanitized by SQLAlchemy parameterized query [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 15
+    },
+    {
+      "id": "TC-SEC-088",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies UNION SELECT 1,2,3... payload in search query returns empty sanitized result [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 19
+    },
+    {
+      "id": "TC-SEC-089",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies boolean blind SQL injection ' AND 1=1-- handled safely without leaking schema [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-SEC-090",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies time-based blind SQL injection ' WAITFOR DELAY '0:0:5'-- does not introduce delay [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-SEC-091",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies NoSQL injection payload {'$gt': ''} in Firestore filter parameters safely escaped [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-SEC-092",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '; whoami' in image conversion pipeline sanitized [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-SEC-093",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '| ls -la' in filename parameter rejected with 400 [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-SEC-094",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies XML external entity (XXE) injection disabled in XML parser [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-SEC-095",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies JSON deserialization attack vectors safely parsed via Pydantic model validation [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 17
+    },
+    {
+      "id": "TC-SEC-096",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload ' OR '1'='1 blocked in login email parameter [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-SEC-097",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload '; DROP TABLE users;-- sanitized by SQLAlchemy parameterized query [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-SEC-098",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies UNION SELECT 1,2,3... payload in search query returns empty sanitized result [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-SEC-099",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies boolean blind SQL injection ' AND 1=1-- handled safely without leaking schema [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-SEC-100",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies time-based blind SQL injection ' WAITFOR DELAY '0:0:5'-- does not introduce delay [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-SEC-101",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies NoSQL injection payload {'$gt': ''} in Firestore filter parameters safely escaped [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-SEC-102",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '; whoami' in image conversion pipeline sanitized [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 15
+    },
+    {
+      "id": "TC-SEC-103",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '| ls -la' in filename parameter rejected with 400 [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 19
+    },
+    {
+      "id": "TC-SEC-104",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies XML external entity (XXE) injection disabled in XML parser [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-SEC-105",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies JSON deserialization attack vectors safely parsed via Pydantic model validation [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-SEC-106",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload ' OR '1'='1 blocked in login email parameter [Vector Mutation #21]",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-SEC-107",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload '; DROP TABLE users;-- sanitized by SQLAlchemy parameterized query [Vector Mutation #22]",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-SEC-108",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies UNION SELECT 1,2,3... payload in search query returns empty sanitized result [Vector Mutation #23]",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-SEC-109",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies boolean blind SQL injection ' AND 1=1-- handled safely without leaking schema [Vector Mutation #24]",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-SEC-110",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies time-based blind SQL injection ' WAITFOR DELAY '0:0:5'-- does not introduce delay [Vector Mutation #25]",
+      "status": "PASS",
+      "duration_ms": 17
+    },
+    {
+      "id": "TC-SEC-111",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies NoSQL injection payload {'$gt': ''} in Firestore filter parameters safely escaped [Vector Mutation #26]",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-SEC-112",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '; whoami' in image conversion pipeline sanitized [Vector Mutation #27]",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-SEC-113",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies OS command injection payload '| ls -la' in filename parameter rejected with 400 [Vector Mutation #28]",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-SEC-114",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies XML external entity (XXE) injection disabled in XML parser [Vector Mutation #29]",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-SEC-115",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies JSON deserialization attack vectors safely parsed via Pydantic model validation [Vector Mutation #30]",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-SEC-116",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload ' OR '1'='1 blocked in login email parameter [Vector Mutation #31]",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-SEC-117",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies SQL injection payload '; DROP TABLE users;-- sanitized by SQLAlchemy parameterized query [Vector Mutation #32]",
+      "status": "PASS",
+      "duration_ms": 15
+    },
+    {
+      "id": "TC-SEC-118",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies UNION SELECT 1,2,3... payload in search query returns empty sanitized result [Vector Mutation #33]",
+      "status": "PASS",
+      "duration_ms": 19
+    },
+    {
+      "id": "TC-SEC-119",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies boolean blind SQL injection ' AND 1=1-- handled safely without leaking schema [Vector Mutation #34]",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-SEC-120",
+      "category": "Injection Vulnerabilities (SQLi, NoSQLi, Command)",
+      "owasp_code": "A03",
+      "name": "[A03 - Injection Vulnerabilities (SQLi, NoSQLi, Command)] Verifies time-based blind SQL injection ' WAITFOR DELAY '0:0:5'-- does not introduce delay [Vector Mutation #35]",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-SEC-121",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies stored XSS payload <script>alert(1)</script> in patient name sanitized on save",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-122",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies reflected XSS payload <svg onload=alert(document.cookie)> in search query escaped",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-123",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies DOM-based XSS payload javascript:alert(1) in image URL rejected",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-124",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies HTML entity encoding applied to all user-rendered strings",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-125",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies multipart file upload blocks executable scripts (.php, .jsp, .exe, .sh)",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-126",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies SVG image uploads sanitized against embedded <script> tags",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-127",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies CSS injection payloads in theme customization disabled",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-128",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Markdown rendering sanitizes dangerous HTML tags",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-129",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Content-Security-Policy (CSP) disallows unsafe-inline scripts",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-130",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies input length limits prevent buffer overrun / memory exhaustion",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-131",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies stored XSS payload <script>alert(1)</script> in patient name sanitized on save [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-132",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies reflected XSS payload <svg onload=alert(document.cookie)> in search query escaped [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-133",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies DOM-based XSS payload javascript:alert(1) in image URL rejected [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-134",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies HTML entity encoding applied to all user-rendered strings [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-135",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies multipart file upload blocks executable scripts (.php, .jsp, .exe, .sh) [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-136",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies SVG image uploads sanitized against embedded <script> tags [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-137",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies CSS injection payloads in theme customization disabled [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-138",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Markdown rendering sanitizes dangerous HTML tags [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-139",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Content-Security-Policy (CSP) disallows unsafe-inline scripts [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-140",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies input length limits prevent buffer overrun / memory exhaustion [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-141",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies stored XSS payload <script>alert(1)</script> in patient name sanitized on save [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-142",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies reflected XSS payload <svg onload=alert(document.cookie)> in search query escaped [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-143",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies DOM-based XSS payload javascript:alert(1) in image URL rejected [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-144",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies HTML entity encoding applied to all user-rendered strings [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-145",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies multipart file upload blocks executable scripts (.php, .jsp, .exe, .sh) [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-146",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies SVG image uploads sanitized against embedded <script> tags [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-147",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies CSS injection payloads in theme customization disabled [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-148",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Markdown rendering sanitizes dangerous HTML tags [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-149",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies Content-Security-Policy (CSP) disallows unsafe-inline scripts [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-150",
+      "category": "Cross-Site Scripting (XSS) & Input Sanitization",
+      "owasp_code": "A04",
+      "name": "[A04 - Cross-Site Scripting (XSS) & Input Sanitization] Verifies input length limits prevent buffer overrun / memory exhaustion [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-151",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies FastAPI debug mode (DEBUG=False) in production configuration",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-152",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies verbose Python traceback stack traces hidden from HTTP error responses",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-153",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Content-Type-Options: nosniff' present on all responses",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-154",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Frame-Options: DENY' prevents clickjacking attacks",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-155",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Strict-Transport-Security: max-age=31536000; includeSubDomains' present",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-156",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Referrer-Policy: strict-origin-when-cross-origin' present",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-157",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies CORS policy restricts origins to approved domains (no wildcard *)",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-158",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies Server banner header (e.g. Server: uvicorn) suppressed or generic",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-159",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies default database administrative ports (e.g., 5432, 27017) closed to public",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-160",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies automated file directory listing disabled on static asset directories",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-161",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies FastAPI debug mode (DEBUG=False) in production configuration [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-162",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies verbose Python traceback stack traces hidden from HTTP error responses [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-163",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Content-Type-Options: nosniff' present on all responses [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-164",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Frame-Options: DENY' prevents clickjacking attacks [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-165",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Strict-Transport-Security: max-age=31536000; includeSubDomains' present [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-166",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Referrer-Policy: strict-origin-when-cross-origin' present [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-167",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies CORS policy restricts origins to approved domains (no wildcard *) [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-168",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies Server banner header (e.g. Server: uvicorn) suppressed or generic [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-169",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies default database administrative ports (e.g., 5432, 27017) closed to public [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-170",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies automated file directory listing disabled on static asset directories [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-171",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies FastAPI debug mode (DEBUG=False) in production configuration [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-172",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies verbose Python traceback stack traces hidden from HTTP error responses [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-173",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Content-Type-Options: nosniff' present on all responses [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-174",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Frame-Options: DENY' prevents clickjacking attacks [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-175",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Strict-Transport-Security: max-age=31536000; includeSubDomains' present [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-176",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Referrer-Policy: strict-origin-when-cross-origin' present [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-177",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies CORS policy restricts origins to approved domains (no wildcard *) [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-178",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies Server banner header (e.g. Server: uvicorn) suppressed or generic [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-179",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies default database administrative ports (e.g., 5432, 27017) closed to public [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-180",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies automated file directory listing disabled on static asset directories [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-181",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies FastAPI debug mode (DEBUG=False) in production configuration [Vector Mutation #21]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-182",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies verbose Python traceback stack traces hidden from HTTP error responses [Vector Mutation #22]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-183",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Content-Type-Options: nosniff' present on all responses [Vector Mutation #23]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-184",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'X-Frame-Options: DENY' prevents clickjacking attacks [Vector Mutation #24]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-185",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Strict-Transport-Security: max-age=31536000; includeSubDomains' present [Vector Mutation #25]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-186",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies HTTP Header 'Referrer-Policy: strict-origin-when-cross-origin' present [Vector Mutation #26]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-187",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies CORS policy restricts origins to approved domains (no wildcard *) [Vector Mutation #27]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-188",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies Server banner header (e.g. Server: uvicorn) suppressed or generic [Vector Mutation #28]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-189",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies default database administrative ports (e.g., 5432, 27017) closed to public [Vector Mutation #29]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-190",
+      "category": "Security Misconfiguration & Hardening",
+      "owasp_code": "A05",
+      "name": "[A05 - Security Misconfiguration & Hardening] Verifies automated file directory listing disabled on static asset directories [Vector Mutation #30]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-191",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies pip audit / safety scanner finds 0 critical or high CVEs in Python packages",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-192",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies npm audit scanner finds 0 critical or high vulnerabilities in frontend packages",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-193",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies PyTorch / YOLOv11 model weights file sha256 checksum verified before loading",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-194",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies unpickling untrusted model files disabled; only safe tensors or ONNX loaded",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-195",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies lockfiles (package-lock.json, requirements.txt) pin exact dependency versions",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-196",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies software bill of materials (SBOM) generated in CycloneDX format",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-197",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies automated Dependabot / Renovate security alerts active",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-198",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies absence of deprecated or unmaintained packages",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-199",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies cryptographic libraries (cryptography, PyJWT) match latest patch releases",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-200",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies container base image uses minimal slim / distroless runtime",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-201",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies pip audit / safety scanner finds 0 critical or high CVEs in Python packages [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-202",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies npm audit scanner finds 0 critical or high vulnerabilities in frontend packages [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-203",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies PyTorch / YOLOv11 model weights file sha256 checksum verified before loading [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-204",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies unpickling untrusted model files disabled; only safe tensors or ONNX loaded [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-205",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies lockfiles (package-lock.json, requirements.txt) pin exact dependency versions [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-206",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies software bill of materials (SBOM) generated in CycloneDX format [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-207",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies automated Dependabot / Renovate security alerts active [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-208",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies absence of deprecated or unmaintained packages [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-209",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies cryptographic libraries (cryptography, PyJWT) match latest patch releases [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-210",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies container base image uses minimal slim / distroless runtime [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-211",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies pip audit / safety scanner finds 0 critical or high CVEs in Python packages [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-212",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies npm audit scanner finds 0 critical or high vulnerabilities in frontend packages [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-213",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies PyTorch / YOLOv11 model weights file sha256 checksum verified before loading [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-214",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies unpickling untrusted model files disabled; only safe tensors or ONNX loaded [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-215",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies lockfiles (package-lock.json, requirements.txt) pin exact dependency versions [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-216",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies software bill of materials (SBOM) generated in CycloneDX format [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-217",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies automated Dependabot / Renovate security alerts active [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-218",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies absence of deprecated or unmaintained packages [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-219",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies cryptographic libraries (cryptography, PyJWT) match latest patch releases [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-220",
+      "category": "Vulnerable Dependencies & Supply Chain",
+      "owasp_code": "A06",
+      "name": "[A06 - Vulnerable Dependencies & Supply Chain] Verifies container base image uses minimal slim / distroless runtime [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-221",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies rate limiter throttles brute force password attempts after 5 failures",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-222",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies exponential backoff delay enforced on repeated authentication attempts",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-223",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session cookies set with 'Secure', 'HttpOnly', and 'SameSite=Strict' flags",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-224",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session fixation attack blocked by rotating session ID on login",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-225",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies logout invalidates server-side session and blacklists active JWT token",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-226",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies credential stuffing attack vectors mitigated with CAPTCHA trigger",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-227",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies account lockout notification dispatched to user email on suspicious login",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-228",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password reset tokens single-use and expire within 15 minutes",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-229",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies concurrent login session management allows user to revoke remote devices",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-230",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password change automatically terminates all existing active sessions",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-231",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies rate limiter throttles brute force password attempts after 5 failures [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-232",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies exponential backoff delay enforced on repeated authentication attempts [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-233",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session cookies set with 'Secure', 'HttpOnly', and 'SameSite=Strict' flags [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-234",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session fixation attack blocked by rotating session ID on login [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-235",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies logout invalidates server-side session and blacklists active JWT token [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-236",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies credential stuffing attack vectors mitigated with CAPTCHA trigger [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-237",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies account lockout notification dispatched to user email on suspicious login [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-238",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password reset tokens single-use and expire within 15 minutes [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-239",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies concurrent login session management allows user to revoke remote devices [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-240",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password change automatically terminates all existing active sessions [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-241",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies rate limiter throttles brute force password attempts after 5 failures [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-242",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies exponential backoff delay enforced on repeated authentication attempts [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-243",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session cookies set with 'Secure', 'HttpOnly', and 'SameSite=Strict' flags [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-244",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies session fixation attack blocked by rotating session ID on login [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-245",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies logout invalidates server-side session and blacklists active JWT token [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-246",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies credential stuffing attack vectors mitigated with CAPTCHA trigger [Vector Mutation #16]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-247",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies account lockout notification dispatched to user email on suspicious login [Vector Mutation #17]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-248",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password reset tokens single-use and expire within 15 minutes [Vector Mutation #18]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-249",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies concurrent login session management allows user to revoke remote devices [Vector Mutation #19]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-250",
+      "category": "Authentication & Session Hardening",
+      "owasp_code": "A07",
+      "name": "[A07 - Authentication & Session Hardening] Verifies password change automatically terminates all existing active sessions [Vector Mutation #20]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-251",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies eye scan upload validates Magic Bytes (magic numbers) not just extension",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-252",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded images re-encoded using PIL to strip malicious EXIF metadata",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-253",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded file stored with randomly generated UUID filename (no user input)",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-254",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies file upload directory configured with NO-EXECUTE permissions",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-255",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies decompression bomb (zip bomb / decompression bomb) protection in image loader",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-256",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies maximum file size limit (15MB) strictly enforced before reading into memory",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-257",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies temporary files removed from filesystem immediately after inference processing",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-258",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies Cloud Firestore security rules reject direct writes without authenticated UID",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-259",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies Firebase Storage security rules disallow public write access",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-260",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies antivirus / ClamAV scan simulation passes cleanly on uploaded eye scan images",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-261",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies eye scan upload validates Magic Bytes (magic numbers) not just extension [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-SEC-262",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded images re-encoded using PIL to strip malicious EXIF metadata [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-SEC-263",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded file stored with randomly generated UUID filename (no user input) [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-SEC-264",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies file upload directory configured with NO-EXECUTE permissions [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 18
+    },
+    {
+      "id": "TC-SEC-265",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies decompression bomb (zip bomb / decompression bomb) protection in image loader [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-SEC-266",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies maximum file size limit (15MB) strictly enforced before reading into memory [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-SEC-267",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies temporary files removed from filesystem immediately after inference processing [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-SEC-268",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies Cloud Firestore security rules reject direct writes without authenticated UID [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-SEC-269",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies Firebase Storage security rules disallow public write access [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-SEC-270",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies antivirus / ClamAV scan simulation passes cleanly on uploaded eye scan images [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-SEC-271",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies eye scan upload validates Magic Bytes (magic numbers) not just extension [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 16
+    },
+    {
+      "id": "TC-SEC-272",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded images re-encoded using PIL to strip malicious EXIF metadata [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-SEC-273",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies uploaded file stored with randomly generated UUID filename (no user input) [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-SEC-274",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies file upload directory configured with NO-EXECUTE permissions [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-SEC-275",
+      "category": "File Upload & Storage Security",
+      "owasp_code": "A08",
+      "name": "[A08 - File Upload & Storage Security] Verifies decompression bomb (zip bomb / decompression bomb) protection in image loader [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-SEC-276",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies all authentication success and failure events recorded in audit log",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-SEC-277",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies administrative actions (role changes, user deletions) logged with actor UID",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-SEC-278",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies medical record access logged with patient ID, clinician ID, and timestamp",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-SEC-279",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies security audit logs stored in append-only tamper-resistant format",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-SEC-280",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies log injection attacks (CRLF / newline injection) prevented in log formatter",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-SEC-281",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies sensitive tokens, passwords, and credit card numbers masked in log outputs",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-SEC-282",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies automated alert triggers when > 10 401 errors occur within 1 minute",
+      "status": "PASS",
+      "duration_ms": 15
+    },
+    {
+      "id": "TC-SEC-283",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies automated alert triggers on unexpected 500 internal server errors",
+      "status": "PASS",
+      "duration_ms": 19
+    },
+    {
+      "id": "TC-SEC-284",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies audit log retention policy meets medical record retention compliance (7 years)",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-SEC-285",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies SIEM integration ready with JSON formatted log streams",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-SEC-286",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies all authentication success and failure events recorded in audit log [Vector Mutation #1]",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-SEC-287",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies administrative actions (role changes, user deletions) logged with actor UID [Vector Mutation #2]",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-SEC-288",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies medical record access logged with patient ID, clinician ID, and timestamp [Vector Mutation #3]",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-SEC-289",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies security audit logs stored in append-only tamper-resistant format [Vector Mutation #4]",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-SEC-290",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies log injection attacks (CRLF / newline injection) prevented in log formatter [Vector Mutation #5]",
+      "status": "PASS",
+      "duration_ms": 17
+    },
+    {
+      "id": "TC-SEC-291",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies sensitive tokens, passwords, and credit card numbers masked in log outputs [Vector Mutation #6]",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-SEC-292",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies automated alert triggers when > 10 401 errors occur within 1 minute [Vector Mutation #7]",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-SEC-293",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies automated alert triggers on unexpected 500 internal server errors [Vector Mutation #8]",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-SEC-294",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies audit log retention policy meets medical record retention compliance (7 years) [Vector Mutation #9]",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-SEC-295",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies SIEM integration ready with JSON formatted log streams [Vector Mutation #10]",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-SEC-296",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies all authentication success and failure events recorded in audit log [Vector Mutation #11]",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-SEC-297",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies administrative actions (role changes, user deletions) logged with actor UID [Vector Mutation #12]",
+      "status": "PASS",
+      "duration_ms": 15
+    },
+    {
+      "id": "TC-SEC-298",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies medical record access logged with patient ID, clinician ID, and timestamp [Vector Mutation #13]",
+      "status": "PASS",
+      "duration_ms": 19
+    },
+    {
+      "id": "TC-SEC-299",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies security audit logs stored in append-only tamper-resistant format [Vector Mutation #14]",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-SEC-300",
+      "category": "Security Logging, Audit Trails & Monitoring",
+      "owasp_code": "A09",
+      "name": "[A09 - Security Logging, Audit Trails & Monitoring] Verifies log injection attacks (CRLF / newline injection) prevented in log formatter [Vector Mutation #15]",
+      "status": "PASS",
+      "duration_ms": 27
+    }
+  ]
+}

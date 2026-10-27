@@ -1,0 +1,17 @@
+{
+  "name": "optisight-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E automated test suite for OptiSight AI Web Application",
+  "main": "runner.js",
+  "scripts": {
+    "test": "node runner.js",
+    "test:web": "node runner.js --tier=web",
+    "test:headless": "node runner.js --headless"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.18.0",
+    "xlsx": "^0.18.5"
+  },
+  "author": "OptiSight AI QA Engineering Team",
+  "license": "MIT"
+}

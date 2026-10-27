@@ -1,0 +1,17 @@
+{
+  "name": "optisight-appium-tests",
+  "version": "1.0.0",
+  "description": "Appium Mobile E2E automation test suite for OptiSight AI Android App",
+  "main": "runner.js",
+  "scripts": {
+    "test": "node runner.js",
+    "test:mobile": "node runner.js --device=android",
+    "test:emulator": "node runner.js --avd=Pixel_7_API_34"
+  },
+  "dependencies": {
+    "webdriverio": "^8.32.0",
+    "appium": "^2.5.1"
+  },
+  "author": "OptiSight AI Mobile QA Team",
+  "license": "MIT"
+}

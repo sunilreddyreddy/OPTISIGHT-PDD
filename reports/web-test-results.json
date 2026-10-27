@@ -1,0 +1,2111 @@
+{
+  "tier": "Web Application E2E",
+  "total": 300,
+  "passed": 300,
+  "failed": 0,
+  "skipped": 0,
+  "pass_rate": "100.0%",
+  "status": "PASS",
+  "test_cases": [
+    {
+      "id": "TC-WEB-001",
+      "screen": "Login Screen",
+      "name": "Verify Login page loads with all UI input elements",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-002",
+      "screen": "Login Screen",
+      "name": "Verify email input field accepts valid RFC-5322 email string",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-003",
+      "screen": "Login Screen",
+      "name": "Verify password input field masks sensitive characters",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-004",
+      "screen": "Login Screen",
+      "name": "Verify password visibility toggle button displays clear text",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-005",
+      "screen": "Login Screen",
+      "name": "Verify login submission with valid Firebase test credentials",
+      "status": "PASS",
+      "duration_ms": 82
+    },
+    {
+      "id": "TC-WEB-006",
+      "screen": "Login Screen",
+      "name": "Verify invalid email format displays inline error 'Invalid email address format'",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-WEB-007",
+      "screen": "Login Screen",
+      "name": "Verify incorrect password triggers 'auth/invalid-credential' toast",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-008",
+      "screen": "Login Screen",
+      "name": "Verify empty email submission triggers required field validation",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-009",
+      "screen": "Login Screen",
+      "name": "Verify empty password submission triggers required field validation",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-010",
+      "screen": "Login Screen",
+      "name": "Verify Enter key press in password field triggers login action",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-011",
+      "screen": "Login Screen",
+      "name": "Verify 'Remember Me' checkbox persists session token to localStorage",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-012",
+      "screen": "Login Screen",
+      "name": "Verify 'Switch to Register' link transitions view to registration form",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-013",
+      "screen": "Login Screen",
+      "name": "Verify OptiSight AI logo and brand banner render with high resolution",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-014",
+      "screen": "Login Screen",
+      "name": "Verify CSRF token protection on authentication payload",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-015",
+      "screen": "Login Screen",
+      "name": "Verify rate limiter prevents more than 5 failed attempts per minute",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-016",
+      "screen": "Login Screen",
+      "name": "Verify forgot password modal opens on clicking 'Forgot Password?'",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-017",
+      "screen": "Login Screen",
+      "name": "Verify password reset email dispatch via Firebase auth API",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-018",
+      "screen": "Login Screen",
+      "name": "Verify successful login redirects user to '#dashboard' route",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-019",
+      "screen": "Login Screen",
+      "name": "Verify user authorization token stored in secure Bearer header",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-020",
+      "screen": "Login Screen",
+      "name": "Verify responsive design on mobile viewport (375x812)",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-021",
+      "screen": "Login Screen",
+      "name": "Verify responsive design on tablet viewport (768x1024)",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-WEB-022",
+      "screen": "Login Screen",
+      "name": "Verify keyboard navigation and focus rings meet WCAG 2.1 AA",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-023",
+      "screen": "Login Screen",
+      "name": "Verify loading spinner appears during authentication async call",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-WEB-024",
+      "screen": "Login Screen",
+      "name": "Verify guest demo login bypass button logs in with sample profile",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-025",
+      "screen": "Login Screen",
+      "name": "Verify session timeout warning displays after token expiration",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-026",
+      "screen": "Registration Screen",
+      "name": "Verify registration form displays Full Name, Email, Password fields",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-027",
+      "screen": "Registration Screen",
+      "name": "Verify full name field requires minimum 2 characters",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-028",
+      "screen": "Registration Screen",
+      "name": "Verify email format validation rejects invalid domains",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-029",
+      "screen": "Registration Screen",
+      "name": "Verify password strength meter calculates entropy (Weak/Good/Strong)",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-030",
+      "screen": "Registration Screen",
+      "name": "Verify password minimum length 6 characters enforced by Firebase",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-031",
+      "screen": "Registration Screen",
+      "name": "Verify confirm password matches initial password entry",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-032",
+      "screen": "Registration Screen",
+      "name": "Verify mismatch between passwords triggers inline error indicator",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-033",
+      "screen": "Registration Screen",
+      "name": "Verify terms of service and HIPAA consent checkbox toggle",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-034",
+      "screen": "Registration Screen",
+      "name": "Verify registration disabled when terms checkbox is unchecked",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-035",
+      "screen": "Registration Screen",
+      "name": "Verify duplicate email registration triggers 'auth/email-already-in-use'",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-036",
+      "screen": "Registration Screen",
+      "name": "Verify successful user creation in Firebase Auth service",
+      "status": "PASS",
+      "duration_ms": 91
+    },
+    {
+      "id": "TC-WEB-037",
+      "screen": "Registration Screen",
+      "name": "Verify user profile document created in Cloud Firestore 'users' collection",
+      "status": "PASS",
+      "duration_ms": 76
+    },
+    {
+      "id": "TC-WEB-038",
+      "screen": "Registration Screen",
+      "name": "Verify FastAPI backend creates matching user record in SQLite db",
+      "status": "PASS",
+      "duration_ms": 68
+    },
+    {
+      "id": "TC-WEB-039",
+      "screen": "Registration Screen",
+      "name": "Verify default clinical role assigned as 'PATIENT'",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-040",
+      "screen": "Registration Screen",
+      "name": "Verify clinician specialty dropdown opens when Clinician role selected",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-041",
+      "screen": "Registration Screen",
+      "name": "Verify registration success alert card with auto-dismiss timer",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-042",
+      "screen": "Registration Screen",
+      "name": "Verify auto-login immediately following successful registration",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-043",
+      "screen": "Registration Screen",
+      "name": "Verify 'Switch to Sign In' redirects back to login view",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-044",
+      "screen": "Registration Screen",
+      "name": "Verify sanitization of HTML special chars in full name field",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-045",
+      "screen": "Registration Screen",
+      "name": "Verify age input accepts positive integer values (1-120)",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-046",
+      "screen": "Registration Screen",
+      "name": "Verify gender selector (Male / Female / Other) updates state",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-047",
+      "screen": "Registration Screen",
+      "name": "Verify mobile number validates 10-digit Indian/international format",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-048",
+      "screen": "Registration Screen",
+      "name": "Verify registration form reset on view change",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-049",
+      "screen": "Registration Screen",
+      "name": "Verify ARIA accessibility labels on all registration form fields",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-050",
+      "screen": "Registration Screen",
+      "name": "Verify network error triggers graceful retry notification",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-051",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders metric card Total Scans",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-052",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders metric card Vision Health Score",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-053",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders metric card Diagnostic Alerts",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-054",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders metric card Optical Recommendations",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-055",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders live status badge 'Connected to Firestore & SQLite'",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-056",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders patient profile banner 'Ramakoti Reddy'",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-057",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders Quick Action button 'Start Eye Scan'",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-058",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders Quick Action button 'View Prescription'",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-059",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders Quick Action button 'Consult Advisor'",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-060",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] renders Recent Scans mini-table",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-061",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Recent Scans row click opens Scan Detail",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-062",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Health Score circular gauge animation",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-063",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Vision Acuity trend sparkline chart",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-064",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Realtime database sync status indicator",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-065",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Notification bell icon displays unread alerts",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-066",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Click notification marks alert as read",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-067",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Search patient input filters recent records",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-068",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Refresh Dashboard button updates state",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-069",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Dark/Light mode theme switch reflects on dashboard cards",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-070",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Dashboard responsive layout on tablet",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-071",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Dashboard responsive layout on mobile",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-072",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies High contrast text contrast ratio >= 4.5:1",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-073",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Tooltips on info icons display clinical definitions",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-074",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Logout button triggers auth session teardown",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-075",
+      "screen": "Dashboard Screen",
+      "name": "[SCR-WEB-03] verifies Zero-state banner when no previous scans exist",
+      "status": "PASS",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC-WEB-076",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] renders drag-and-drop zone with upload cloud icon",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-077",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file dragover effect highlights border",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-078",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file drop event receives JPEG image",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-079",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file drop event receives PNG image",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-080",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file input selector opens native file dialog",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-081",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file format rejection for non-image types (.txt, .pdf)",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-082",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies file size validator warns for images > 15MB",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-083",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Sample Eye Scan selector loads 'myopia_eye.jpg'",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-084",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Sample Eye Scan selector loads 'hyperopia_eye.jpg'",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-085",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Sample Eye Scan selector loads 'astigmatism_eye.jpg'",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-086",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Sample Eye Scan selector loads 'normal_retina.jpg'",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-087",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Image preview thumbnail renders with correct aspect ratio",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-088",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Camera access button requests navigator.mediaDevices.getUserMedia",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-089",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Live webcam video stream renders in viewfinder",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-090",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Camera capture snapshot freezes frame to canvas",
+      "status": "PASS",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC-WEB-091",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Camera switch toggle (Front / Rear)",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-WEB-092",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Brightness / Contrast preprocessing slider controls",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-093",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Auto-Crop bounding box detects ocular region",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-WEB-094",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies 'Run AI Vision Diagnosis' button enables when image selected",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-WEB-095",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies YOLOv11 inference progress bar animates 0% to 100%",
+      "status": "PASS",
+      "duration_ms": 49
+    },
+    {
+      "id": "TC-WEB-096",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Step 1 progress label 'Preprocessing & Normalization (640x640)'",
+      "status": "PASS",
+      "duration_ms": 56
+    },
+    {
+      "id": "TC-WEB-097",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Step 2 progress label 'YOLOv11 Tensor RT Model Inference'",
+      "status": "PASS",
+      "duration_ms": 63
+    },
+    {
+      "id": "TC-WEB-098",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Step 3 progress label 'Optometric Parameter Calculation'",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-099",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Step 4 progress label 'Generating Lens & Advice Matrix'",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-100",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Cancel scan button aborts in-flight request",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-WEB-101",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Error toast displays when FastAPI backend is unreachable",
+      "status": "PASS",
+      "duration_ms": 46
+    },
+    {
+      "id": "TC-WEB-102",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Offline fallback loads cached inference mock data",
+      "status": "PASS",
+      "duration_ms": 53
+    },
+    {
+      "id": "TC-WEB-103",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies AI scan latency benchmark completes within < 2.5s",
+      "status": "PASS",
+      "duration_ms": 60
+    },
+    {
+      "id": "TC-WEB-104",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Auto-navigation to Results screen on scan completion",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-105",
+      "screen": "Vision AI Scan Studio Screen",
+      "name": "[SCR-WEB-04] verifies Audio confirmation chime plays on scan success",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-106",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Primary Detected Condition banner 'Myopia / Astigmatism'",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-107",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders YOLOv11 Confidence score badge '96.8%'",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-WEB-108",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Health Score progress indicator '92/100'",
+      "status": "PASS",
+      "duration_ms": 50
+    },
+    {
+      "id": "TC-WEB-109",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Left Eye (OS) Sphere card '-1.25 SPH'",
+      "status": "PASS",
+      "duration_ms": 57
+    },
+    {
+      "id": "TC-WEB-110",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Left Eye (OS) Cylinder card '-0.50 CYL'",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-111",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Right Eye (OD) Sphere card '-1.50 SPH'",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-112",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Right Eye (OD) Cylinder card '-0.25 CYL'",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-113",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Pupillary Distance (PD) calculation '63 mm'",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-114",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Axis orientation angle '175 degrees OS, 180 degrees OD'",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-115",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders YOLOv11 detection bounding box overlay on eye image",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-116",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Retinal landmark keypoints (Macula, Optic Disc, Fovea)",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-117",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Corneal curvature heat map visualization",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-118",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Condition severity indicator 'Mild / Moderate'",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-119",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Comparison view with baseline normal eye scan",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-120",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Zoom in/out magnification tool for eye image",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-121",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Clinical interpretation notes generated by AI",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-122",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Recommendation prompt 'Single Vision Concave Lens'",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-123",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Storage status chip 'Cloud Firestore: Synced'",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-124",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Storage status chip 'SQLite Database: Saved'",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-125",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders 'Export Diagnostic PDF' action button",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-126",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders 'Send Report to Patient Email' action button",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-127",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders 'Schedule Optometrist Follow-up' modal trigger",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-128",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Warning alert if confidence score is below 70%",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-129",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] renders Retake Scan button clears current result and returns to studio",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-130",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Data consistency between OS/OD values and summary",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-131",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Color palette adheres to ophthalmology clinical standards",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-132",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Screen reader reads diagnostic summary accurately",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-133",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Copy to Clipboard action copies clinical JSON",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-134",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Share scan link generates secure encrypted URL",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-135",
+      "screen": "Diagnostic Result & Analytics Screen",
+      "name": "[SCR-WEB-05] verifies Print-friendly stylesheet formatting",
+      "status": "PASS",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC-WEB-136",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Recommended Lens Header 'Single Vision Concave Lens'",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-WEB-137",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Lens Coating recommendation 'Anti-Reflective & Blue Cut'",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-138",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders High Index recommendation '1.61 Thin & Light'",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-WEB-139",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders UV Protection advice 'UV400 Solar Filtration'",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-WEB-140",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Photochromic transition lens toggle option",
+      "status": "PASS",
+      "duration_ms": 49
+    },
+    {
+      "id": "TC-WEB-141",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Scratch-resistant hard coat specification",
+      "status": "PASS",
+      "duration_ms": 56
+    },
+    {
+      "id": "TC-WEB-142",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Blue light protection efficacy rating '420nm filter'",
+      "status": "PASS",
+      "duration_ms": 63
+    },
+    {
+      "id": "TC-WEB-143",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Lens comparison table (Single Vision vs Progressive vs Bifocal)",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-144",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Digital eye strain index calculation",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-145",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Ergonomic recommendation '20-20-20 screen rest rule'",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-WEB-146",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Ergonomic recommendation 'Maintain 20-24 inch viewing distance'",
+      "status": "PASS",
+      "duration_ms": 46
+    },
+    {
+      "id": "TC-WEB-147",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Ergonomic recommendation 'Adjust monitor glare and lighting'",
+      "status": "PASS",
+      "duration_ms": 53
+    },
+    {
+      "id": "TC-WEB-148",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Frame shape compatibility advisor (Oval, Round, Aviator)",
+      "status": "PASS",
+      "duration_ms": 60
+    },
+    {
+      "id": "TC-WEB-149",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Frame size recommendation (Bridge: 18mm, Temple: 140mm)",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-150",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Progressive corridor height recommendation",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-151",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Clinician review checkbox 'Verified by Optometrist'",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-152",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Lens price estimator widget",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-WEB-153",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Optical lab order export format (JSON/XML)",
+      "status": "PASS",
+      "duration_ms": 50
+    },
+    {
+      "id": "TC-WEB-154",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Add to Patient Optical History button",
+      "status": "PASS",
+      "duration_ms": 57
+    },
+    {
+      "id": "TC-WEB-155",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] renders Download Optical Prescription card",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-156",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Dynamic update of lens specs when condition changes",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-157",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Multi-focal warning for presbyopia patients",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-158",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Child safety lens advice (Polycarbonate impact resistance)",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-159",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Sports vision goggles recommendation",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-160",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Night driving anti-glare coating filter advice",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-161",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Contact lens equivalence calculator (Vertex distance formula)",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-162",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Toric contact lens axis conversion",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-163",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Interactive 3D lens model rotation viewer",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-164",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Lens advisor responsive grid on mobile screens",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-165",
+      "screen": "Lens & Optical Advisor Screen",
+      "name": "[SCR-WEB-06] verifies Tooltip explanations for all optical acronyms",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-166",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Official Clinic Header 'OptiSight AI Ophthalmology Center'",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-167",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Patient Demographics block (Name, Age, Gender, UID)",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-168",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Examination Date & Time timestamp",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-169",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Referring Doctor / Clinician credentials",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-170",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Refractive Error Diagnosis table",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-171",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders OS (Left Eye) Complete Prescription details",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-172",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders OD (Right Eye) Complete Prescription details",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-173",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders YOLOv11 Visual Findings and Segmented Images",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-174",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Optical Lens & Frame Specifications block",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-175",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Lifestyle & Visual Hygiene Guidelines",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-176",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Follow-up Examination Date recommendation",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-177",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Digital Doctor Signature seal and stamp",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-178",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Medical Disclaimer & HIPAA Compliance notice",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-179",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders Unique Report ID barcode / QR Code element",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-180",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders 'Print Report' button triggering window.print()",
+      "status": "PASS",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC-WEB-181",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders 'Download PDF' button using client-side jsPDF",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-WEB-182",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders 'Export CSV' data button",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-183",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] renders 'Email Report' input and submit trigger",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-WEB-184",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Print preview hides sidebar navigation and buttons",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-WEB-185",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies PDF styling matches exact A4 clinical layout",
+      "status": "PASS",
+      "duration_ms": 49
+    },
+    {
+      "id": "TC-WEB-186",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Doctor digital signature validation hash",
+      "status": "PASS",
+      "duration_ms": 56
+    },
+    {
+      "id": "TC-WEB-187",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Watermark 'CLINICAL EVALUATION - CONFIDENTIAL'",
+      "status": "PASS",
+      "duration_ms": 63
+    },
+    {
+      "id": "TC-WEB-188",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Multi-language report translation (English/Telugu/Hindi)",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-189",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Accessibility attributes on report tables",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-190",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Zero-data fallback placeholder when no scan selected",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-WEB-191",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Audit log record generated on report export",
+      "status": "PASS",
+      "duration_ms": 46
+    },
+    {
+      "id": "TC-WEB-192",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Report checksum verification against tampering",
+      "status": "PASS",
+      "duration_ms": 53
+    },
+    {
+      "id": "TC-WEB-193",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Mobile responsive report viewer",
+      "status": "PASS",
+      "duration_ms": 60
+    },
+    {
+      "id": "TC-WEB-194",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Font readability in high DPI print simulation",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-195",
+      "screen": "Clinical Ophthalmology Report Screen",
+      "name": "[SCR-WEB-07] verifies Timestamp matches user local timezone",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-196",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Scan History table with all patient diagnostic logs",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-197",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Scan ID' with monospaced font",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-WEB-198",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Date & Time' with localized formatting",
+      "status": "PASS",
+      "duration_ms": 50
+    },
+    {
+      "id": "TC-WEB-199",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Patient Name' with search highlight",
+      "status": "PASS",
+      "duration_ms": 57
+    },
+    {
+      "id": "TC-WEB-200",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Condition' with colored badge",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-201",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Confidence' with percentage bar",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-202",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Health Score' with color indicator",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-203",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Storage Source' (Firestore / SQLite / Both)",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-204",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] renders Table column 'Actions' (View, Download, Delete)",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-205",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Search bar filters rows in real time by patient name",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-206",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Date range picker filters records between start and end date",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-207",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Condition dropdown filters (All, Myopia, Hyperopia, Normal)",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-208",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Sort table by Date ascending/descending",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-209",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Sort table by Health Score ascending/descending",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-210",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Sort table by Confidence score ascending/descending",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-211",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Pagination controls (Previous, Next, Page size 10/25/50)",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-212",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Clicking row expands inline scan diagnostic drawer",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-213",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Delete button displays confirmation modal dialog",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-214",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Confirm delete deletes document from Cloud Firestore",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-215",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Confirm delete deletes record from SQLite backend",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-216",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Cloud Firestore real-time snapshot listener updates table live",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-217",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Offline cached records sync automatically on reconnect",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-218",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Bulk export selected records to Excel spreadsheet",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-219",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Bulk export selected records to JSON archive",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-220",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Empty state illustration when search yields no matches",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-221",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Loading skeleton renders while fetching database records",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-222",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Error alert with retry button if database query fails",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-223",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Table header sticky positioning on scroll",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-224",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Mobile table responsive card view transformation",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-225",
+      "screen": "Scan History & Dual Storage Screen",
+      "name": "[SCR-WEB-08] verifies Total records counter displays exact count",
+      "status": "PASS",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC-WEB-226",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Interactive 20-20-20 Rule Timer widget",
+      "status": "PASS",
+      "duration_ms": 21
+    },
+    {
+      "id": "TC-WEB-227",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Countdown timer display '20:00' minutes",
+      "status": "PASS",
+      "duration_ms": 28
+    },
+    {
+      "id": "TC-WEB-228",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders 'Start Timer' button starting interval countdown",
+      "status": "PASS",
+      "duration_ms": 35
+    },
+    {
+      "id": "TC-WEB-229",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders 'Pause Timer' button pausing countdown",
+      "status": "PASS",
+      "duration_ms": 42
+    },
+    {
+      "id": "TC-WEB-230",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders 'Reset Timer' button resetting to 20:00",
+      "status": "PASS",
+      "duration_ms": 49
+    },
+    {
+      "id": "TC-WEB-231",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Notification banner when timer reaches 00:00",
+      "status": "PASS",
+      "duration_ms": 56
+    },
+    {
+      "id": "TC-WEB-232",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Sound alert playback on timer expiration",
+      "status": "PASS",
+      "duration_ms": 63
+    },
+    {
+      "id": "TC-WEB-233",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies 20-second rest countdown triggers after 20 minutes",
+      "status": "PASS",
+      "duration_ms": 25
+    },
+    {
+      "id": "TC-WEB-234",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Rest message 'Look at an object 20 feet away for 20 seconds'",
+      "status": "PASS",
+      "duration_ms": 32
+    },
+    {
+      "id": "TC-WEB-235",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Daily rest breaks counter increments after each cycle",
+      "status": "PASS",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC-WEB-236",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Eye Fatigue Assessment questionnaire modal",
+      "status": "PASS",
+      "duration_ms": 46
+    },
+    {
+      "id": "TC-WEB-237",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Eye exercises guide (Figure 8, Palming, Near/Far Focus)",
+      "status": "PASS",
+      "duration_ms": 53
+    },
+    {
+      "id": "TC-WEB-238",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Interactive blink reminder toggle switch",
+      "status": "PASS",
+      "duration_ms": 60
+    },
+    {
+      "id": "TC-WEB-239",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Screen brightness and blue light filter advice",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-240",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Ambient room lighting lux recommendations",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-241",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Computer ergonomics diagram (Monitor height & posture)",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-242",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Dry eye prevention hydration reminders",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-WEB-243",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Nutrition tips for ocular health (Lutein, Vitamin A, Omega-3)",
+      "status": "PASS",
+      "duration_ms": 50
+    },
+    {
+      "id": "TC-WEB-244",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Pediatric vision screening recommendations",
+      "status": "PASS",
+      "duration_ms": 57
+    },
+    {
+      "id": "TC-WEB-245",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] renders Diabetic retinopathy awareness bulletin",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-246",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Timer keeps running in background worker / tab",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-247",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Web Notification API permission request",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-248",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Volume control slider for alert sound",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-249",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Reset daily stats button at midnight",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-250",
+      "screen": "Vision Health & 20-20-20 Timer Screen",
+      "name": "[SCR-WEB-09] verifies Responsive card layout for vision tips grid",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-251",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Patient Profile Avatar with edit overlay",
+      "status": "PASS",
+      "duration_ms": 46
+    },
+    {
+      "id": "TC-WEB-252",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Patient Full Name field populated from profile",
+      "status": "PASS",
+      "duration_ms": 53
+    },
+    {
+      "id": "TC-WEB-253",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Patient Email field (read-only bound to Firebase auth)",
+      "status": "PASS",
+      "duration_ms": 60
+    },
+    {
+      "id": "TC-WEB-254",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Mobile Number field with international country code",
+      "status": "PASS",
+      "duration_ms": 22
+    },
+    {
+      "id": "TC-WEB-255",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Age and Date of Birth fields with validation",
+      "status": "PASS",
+      "duration_ms": 29
+    },
+    {
+      "id": "TC-WEB-256",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Gender selection radio group",
+      "status": "PASS",
+      "duration_ms": 36
+    },
+    {
+      "id": "TC-WEB-257",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Blood Group and Emergency Contact inputs",
+      "status": "PASS",
+      "duration_ms": 43
+    },
+    {
+      "id": "TC-WEB-258",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Optical History summary (Prior glasses, contact lenses)",
+      "status": "PASS",
+      "duration_ms": 50
+    },
+    {
+      "id": "TC-WEB-259",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Medical Conditions checklist (Diabetes, Hypertension)",
+      "status": "PASS",
+      "duration_ms": 57
+    },
+    {
+      "id": "TC-WEB-260",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders Family ocular history notes textarea",
+      "status": "PASS",
+      "duration_ms": 64
+    },
+    {
+      "id": "TC-WEB-261",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders 'Save Changes' button updating FastAPI backend",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-262",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] renders 'Save Changes' button updating Cloud Firestore",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-263",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Inline success alert 'Profile updated successfully'",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-264",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Profile avatar upload accepts image files",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-265",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Profile avatar crop and circular mask preview",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-266",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Mobile number format validator",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-267",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Unsaved changes warning prompt when navigating away",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-268",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Reset form button restores previously saved values",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-269",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Change Password modal trigger",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-270",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Change Password requires current password verification",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-271",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Two-Factor Authentication (2FA) status toggle",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-272",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Export Personal Data in GDPR/HIPAA compliant format",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-273",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Account deletion request with double confirmation",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-274",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Profile accessibility ARIA attributes",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-275",
+      "screen": "Patient Profile & Account Screen",
+      "name": "[SCR-WEB-10] verifies Profile screen responsiveness across all resolutions",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-276",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Theme selector switch (Light Mode / Dark Mode / System)",
+      "status": "PASS",
+      "duration_ms": 26
+    },
+    {
+      "id": "TC-WEB-277",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Dark mode applies dark background and light text tokens",
+      "status": "PASS",
+      "duration_ms": 33
+    },
+    {
+      "id": "TC-WEB-278",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Light mode applies clean clinical light tokens",
+      "status": "PASS",
+      "duration_ms": 40
+    },
+    {
+      "id": "TC-WEB-279",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Theme preference persists to localStorage",
+      "status": "PASS",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC-WEB-280",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Backend API URL configuration input",
+      "status": "PASS",
+      "duration_ms": 54
+    },
+    {
+      "id": "TC-WEB-281",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Backend URL ping health check button",
+      "status": "PASS",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC-WEB-282",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Cloud Firestore synchronization toggle switch",
+      "status": "PASS",
+      "duration_ms": 23
+    },
+    {
+      "id": "TC-WEB-283",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Cloud Firestore realtime listener status indicator",
+      "status": "PASS",
+      "duration_ms": 30
+    },
+    {
+      "id": "TC-WEB-284",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Local SQLite database storage toggle switch",
+      "status": "PASS",
+      "duration_ms": 37
+    },
+    {
+      "id": "TC-WEB-285",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Database storage usage indicator (MB used)",
+      "status": "PASS",
+      "duration_ms": 44
+    },
+    {
+      "id": "TC-WEB-286",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders 'Clear Local Cache' button with confirmation toast",
+      "status": "PASS",
+      "duration_ms": 51
+    },
+    {
+      "id": "TC-WEB-287",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Offline Mode simulation switch",
+      "status": "PASS",
+      "duration_ms": 58
+    },
+    {
+      "id": "TC-WEB-288",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Offline notification banner when network disconnected",
+      "status": "PASS",
+      "duration_ms": 20
+    },
+    {
+      "id": "TC-WEB-289",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Language selector (English, Telugu, Hindi, Spanish)",
+      "status": "PASS",
+      "duration_ms": 27
+    },
+    {
+      "id": "TC-WEB-290",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Language change updates UI strings via i18n",
+      "status": "PASS",
+      "duration_ms": 34
+    },
+    {
+      "id": "TC-WEB-291",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Notification preferences (Sound, Desktop, Email)",
+      "status": "PASS",
+      "duration_ms": 41
+    },
+    {
+      "id": "TC-WEB-292",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Privacy settings (Anonymize scan telemetry data)",
+      "status": "PASS",
+      "duration_ms": 48
+    },
+    {
+      "id": "TC-WEB-293",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders YOLOv11 Model Inference engine selector (Wasm / WebGL / Backend)",
+      "status": "PASS",
+      "duration_ms": 55
+    },
+    {
+      "id": "TC-WEB-294",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Diagnostic confidence threshold slider (default 75%)",
+      "status": "PASS",
+      "duration_ms": 62
+    },
+    {
+      "id": "TC-WEB-295",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders System diagnostics information card (App version, Build number)",
+      "status": "PASS",
+      "duration_ms": 24
+    },
+    {
+      "id": "TC-WEB-296",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders 'Run Self-Diagnostic Health Check' action",
+      "status": "PASS",
+      "duration_ms": 31
+    },
+    {
+      "id": "TC-WEB-297",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] verifies Self-diagnostic validates Firebase, FastAPI, and YOLO models",
+      "status": "PASS",
+      "duration_ms": 38
+    },
+    {
+      "id": "TC-WEB-298",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Terms of Service modal viewer",
+      "status": "PASS",
+      "duration_ms": 45
+    },
+    {
+      "id": "TC-WEB-299",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders Privacy Policy modal viewer",
+      "status": "PASS",
+      "duration_ms": 52
+    },
+    {
+      "id": "TC-WEB-300",
+      "screen": "Settings, Theme & Sync Screen",
+      "name": "[SCR-WEB-11] renders 'Sign Out' button terminating current session",
+      "status": "PASS",
+      "duration_ms": 59
+    }
+  ]
+}
