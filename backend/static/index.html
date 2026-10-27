@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSight AI - Intelligent Eye Diagnostics & Vision Health</title>
+    <meta name="description" content="OptiSight AI Vision Diagnostic Web Platform. YOLO Neural Network Eye Health Assessment, Clinical Reports, and Lens Recommendations.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo-glow">
+                    <i data-lucide="eye" class="brand-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">OptiSight<span class="brand-badge">AI</span></span>
+                    <span class="brand-subtitle">Vision Diagnostics</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-tab="dashboard" id="navDashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-tab="scan" id="navScan">
+                    <i data-lucide="scan-eye"></i>
+                    <span>AI Vision Scan</span>
+                    <span class="nav-pill pulse">Live</span>
+                </button>
+                <button class="nav-item" data-tab="history" id="navHistory">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Scan History</span>
+                </button>
+                <button class="nav-item" data-tab="lenses" id="navLenses">
+                    <i data-lucide="glasses"></i>
+                    <span>Lens Advisor</span>
+                </button>
+                <button class="nav-item" data-tab="report" id="navReport">
+                    <i data-lucide="file-text"></i>
+                    <span>Clinical Report</span>
+                </button>
+                <button class="nav-item" data-tab="tips" id="navTips">
+                    <i data-lucide="heart-pulse"></i>
+                    <span>Eye Wellness</span>
+                </button>
+                <button class="nav-item" data-tab="profile" id="navProfile">
+                    <i data-lucide="user-cog"></i>
+                    <span>Profile & Settings</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="server-status-badge">
+                    <span class="status-dot online"></span>
+                    <div class="status-info">
+                        <span class="status-label">Backend API</span>
+                        <span class="status-val">FastAPI YOLO Online</span>
+                    </div>
+                </div>
+
+                <div class="user-profile-snippet" id="userProfileSnippet">
+                    <div class="avatar-circle" id="userAvatarText">SK</div>
+                    <div class="user-snippet-details">
+                        <span class="snippet-name" id="snippetUserName">Sunil Kumar</span>
+                        <span class="snippet-email" id="snippetUserEmail">sunil.kumar@example.com</span>
+                    </div>
+                    <button class="icon-btn-ghost" id="btnLogout" title="Log Out">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Viewport -->
+        <main class="app-main">
+            <!-- Header Bar -->
+            <header class="app-header">
+                <div class="header-left">
+                    <button class="icon-btn-ghost mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="page-title-group">
+                        <h1 class="page-title" id="pageTitle">Clinical Dashboard</h1>
+                        <span class="page-breadcrumb" id="pageBreadcrumb">OptiSight / Overview</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="btn-secondary-glow" id="btnQuickDemoLogin" title="Fast login as demo user">
+                        <i data-lucide="zap"></i>
+                        <span>Demo User</span>
+                    </button>
+
+                    <button class="btn-primary-glow" id="btnHeaderScan">
+                        <i data-lucide="scan-face"></i>
+                        <span>New Scan</span>
+                    </button>
+
+                    <button class="icon-btn-surface" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="content-scroll-area">
+                
+                <!-- TAB 1: DASHBOARD -->
+                <section class="tab-pane active" id="tabDashboard">
+                    <!-- Hero Card -->
+                    <div class="hero-banner-card">
+                        <div class="hero-content">
+                            <div class="hero-tag">
+                                <i data-lucide="sparkles"></i>
+                                <span>AI-Powered Ophthalmic Intelligence</span>
+                            </div>
+                            <h2 class="hero-heading">Welcome back, <span id="heroUserName">Sunil Kumar</span> 👋</h2>
+                            <p class="hero-subtext">
+                                Your next-generation vision diagnostic platform. Scan eye images, detect refractive anomalies, receive precision lens prescriptions, and monitor vision longevity.
+                            </p>
+                            <div class="hero-actions">
+                                <button class="btn-hero-primary" onclick="app.switchTab('scan')">
+                                    <i data-lucide="scan"></i>
+                                    <span>Launch AI Vision Scanner</span>
+                                </button>
+                                <button class="btn-hero-glass" onclick="app.switchTab('lenses')">
+                                    <i data-lucide="glasses"></i>
+                                    <span>Explore Lens Catalog</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-graphic">
+                            <div class="scanner-orb">
+                                <div class="orb-ring ring-1"></div>
+                                <div class="orb-ring ring-2"></div>
+                                <div class="orb-ring ring-3"></div>
+                                <i data-lucide="eye" class="orb-center-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics KPI Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card card-blue">
+                            <div class="metric-header">
+                                <span class="metric-title">Total AI Scans</span>
+                                <div class="metric-icon-wrap">
+                                    <i data-lucide="scan-eye"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value" id="kpiTotalScans">14</div>
+                            <div class="metric-footer">
+                                <span class="badge-trend positive"><i data-lucide="trending-up"></i> +3 this week</span>
+                                <span class="metric-caption">Neural model v1.4</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card card-cyan">
+                            <div class="metric-header">
+                                <span class="metric-title">Last Diagnostic</span>
+                                <div class="metric-icon-wrap">
+                                    <i data-lucide="activity"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value" id="kpiLastCondition">Normal Vision</div>
+                            <div class="metric-footer">
+                                <span class="badge-confidence" id="kpiLastConfidence">97.5% Confidence</span>
+                                <span class="metric-caption" id="kpiLastDate">24 Aug 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card card-purple">
+                            <div class="metric-header">
+                                <span class="metric-title">Eye Health Index</span>
+                                <div class="metric-icon-wrap">
+                                    <i data-lucide="shield-check"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value" id="kpiHealthScore">98 <span class="metric-unit">/100</span></div>
+                            <div class="metric-footer">
+                                <div class="health-mini-bar">
+                                    <div class="health-fill" style="width: 98%;"></div>
+                                </div>
+                                <span class="metric-caption">Optimal range</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card card-green">
+                            <div class="metric-header">
+                                <span class="metric-title">Lens Recommendation</span>
+                                <div class="metric-icon-wrap">
+                                    <i data-lucide="glasses"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value" id="kpiLensType" style="font-size: 1.25rem; font-weight: 600;">Anti-Glare Blue Cut</div>
+                            <div class="metric-footer">
+                                <span class="badge-pill">UV400 + Blue Guard</span>
+                                <span class="metric-caption">Custom Fit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Grid -->
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h3 class="section-title">Quick Actions</h3>
+                            <span class="section-subtitle">Common diagnostic & care workflows</span>
+                        </div>
+                        <div class="quick-actions-grid">
+                            <div class="action-tile" onclick="app.switchTab('scan')">
+                                <div class="tile-icon cyan">
+                                    <i data-lucide="camera"></i>
+                                </div>
+                                <h4>New Eye Capture</h4>
+                                <p>Capture via camera or upload high-res eye photo for instant YOLO analysis.</p>
+                                <span class="tile-arrow"><i data-lucide="arrow-right"></i></span>
+                            </div>
+
+                            <div class="action-tile" onclick="app.switchTab('report')">
+                                <div class="tile-icon blue">
+                                    <i data-lucide="file-check-2"></i>
+                                </div>
+                                <h4>Clinical Vision Report</h4>
+                                <p>Generate printable diagnostic summary with clinical insights.</p>
+                                <span class="tile-arrow"><i data-lucide="arrow-right"></i></span>
+                            </div>
+
+                            <div class="action-tile" onclick="app.switchTab('lenses')">
+                                <div class="tile-icon purple">
+                                    <i data-lucide="sparkles"></i>
+                                </div>
+                                <h4>Smart Lens Advisor</h4>
+                                <p>Personalized optical lens recommendations tailored to your screen habits.</p>
+                                <span class="tile-arrow"><i data-lucide="arrow-right"></i></span>
+                            </div>
+
+                            <div class="action-tile" onclick="app.switchTab('tips')">
+                                <div class="tile-icon green">
+                                    <i data-lucide="clock"></i>
+                                </div>
+                                <h4>20-20-20 Rule Timer</h4>
+                                <p>Combat digital eye strain with automated ergonomic rest reminders.</p>
+                                <span class="tile-arrow"><i data-lucide="arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Analysis History Table -->
+                    <div class="section-block">
+                        <div class="section-header flex-between">
+                            <div>
+                                <h3 class="section-title">Recent Vision Analyses</h3>
+                                <span class="section-subtitle">Historical records synced to backend database</span>
+                            </div>
+                            <button class="btn-ghost-sm" onclick="app.switchTab('history')">
+                                <span>View All History</span>
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="table-card">
+                            <table class="custom-table" id="dashboardHistoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Scan ID</th>
+                                        <th>Date & Time</th>
+                                        <th>Detected Condition</th>
+                                        <th>Confidence</th>
+                                        <th>Health Score</th>
+                                        <th>Lens Recommendation</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboardHistoryBody">
+                                    <!-- Populated dynamically by app.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: AI VISION SCAN STUDIO -->
+                <section class="tab-pane" id="tabScan">
+                    <div class="scan-studio-grid">
+                        <!-- Left Panel: Input & Control -->
+                        <div class="studio-panel input-panel">
+                            <div class="panel-header">
+                                <h3><i data-lucide="upload-cloud"></i> Eye Image Source</h3>
+                                <span class="panel-desc">Select an image or use live camera for diagnosis</span>
+                            </div>
+
+                            <!-- Sample Quick Pickers -->
+                            <div class="sample-picker-group">
+                                <span class="picker-label">Test with Pre-loaded Sample Eyes:</span>
+                                <div class="samples-row">
+                                    <button class="sample-chip" onclick="app.loadSample('/static/samples/normal_eye.jpg', 'Normal Vision')">
+                                        <img src="/static/samples/normal_eye.jpg" alt="Normal Eye">
+                                        <span>Normal Vision</span>
+                                    </button>
+                                    <button class="sample-chip" onclick="app.loadSample('/static/samples/myopia_eye.jpg', 'Myopia')">
+                                        <img src="/static/samples/myopia_eye.jpg" alt="Myopia Eye">
+                                        <span>Myopia</span>
+                                    </button>
+                                    <button class="sample-chip" onclick="app.loadSample('/static/samples/astigmatism_eye.jpg', 'Astigmatism')">
+                                        <img src="/static/samples/astigmatism_eye.jpg" alt="Astigmatism Eye">
+                                        <span>Astigmatism</span>
+                                    </button>
+                                    <button class="sample-chip" onclick="app.loadSample('/static/samples/cataract_eye.jpg', 'Eye Disease')">
+                                        <img src="/static/samples/cataract_eye.jpg" alt="Disease Eye">
+                                        <span>Eye Disease</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Dropzone & Camera Trigger -->
+                            <div class="dropzone-area" id="dropzoneArea">
+                                <input type="file" id="eyeImageFileInput" accept="image/*" class="file-input-hidden">
+                                <div class="dropzone-content" id="dropzonePrompt">
+                                    <div class="dropzone-icon-glow">
+                                        <i data-lucide="image-plus"></i>
+                                    </div>
+                                    <h4>Drag & Drop Eye Image Here</h4>
+                                    <p>or click to browse from device (JPG, PNG)</p>
+                                    <div class="dropzone-btn-row">
+                                        <button class="btn-surface-sm" type="button" onclick="document.getElementById('eyeImageFileInput').click()">
+                                            <i data-lucide="folder-open"></i> Browse Files
+                                        </button>
+                                        <button class="btn-surface-sm" type="button" id="btnToggleWebcam">
+                                            <i data-lucide="camera"></i> Use Live Camera
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Live Video Container (hidden by default) -->
+                                <div class="webcam-container hidden" id="webcamContainer">
+                                    <video id="webcamVideo" autoplay playsinline muted></video>
+                                    <div class="webcam-overlay-reticle">
+                                        <div class="reticle-box"></div>
+                                        <span class="reticle-hint">Align eye within circle</span>
+                                    </div>
+                                    <div class="webcam-controls">
+                                        <button class="btn-primary-glow" id="btnCapturePhoto" type="button">
+                                            <i data-lucide="aperture"></i> Capture Photo
+                                        </button>
+                                        <button class="btn-ghost-sm" id="btnCloseWebcam" type="button">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Image Preview Container -->
+                                <div class="image-preview-container hidden" id="imagePreviewContainer">
+                                    <div class="preview-wrapper">
+                                        <img id="previewImg" src="" alt="Selected Eye">
+                                        <canvas id="boundingBoxCanvas" class="bbox-canvas"></canvas>
+                                        <div class="hud-scan-line hidden" id="hudScanLine"></div>
+                                    </div>
+                                    <div class="preview-actions">
+                                        <button class="btn-ghost-sm" type="button" id="btnChangeImage">
+                                            <i data-lucide="refresh-cw"></i> Change Image
+                                        </button>
+                                        <span class="image-meta" id="previewImageMeta">Ready for Analysis</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Run Diagnostic CTA -->
+                            <button class="btn-analyze-submit" id="btnStartAnalysis" disabled>
+                                <i data-lucide="cpu"></i>
+                                <span>Run AI Vision Diagnosis</span>
+                            </button>
+                        </div>
+
+                        <!-- Right Panel: Live HUD Diagnostic Scanner -->
+                        <div class="studio-panel scanner-panel">
+                            <div class="panel-header">
+                                <h3><i data-lucide="activity"></i> Neural Diagnostic Engine</h3>
+                                <span class="panel-desc">Real-time inference & biometric feature tracking</span>
+                            </div>
+
+                            <!-- Scanner State Display -->
+                            <div class="scanner-state-wrap" id="scannerStateWrap">
+                                <div class="idle-state-view" id="scannerIdleView">
+                                    <div class="idle-graphic">
+                                        <i data-lucide="shield-alert"></i>
+                                    </div>
+                                    <h4>Awaiting Eye Image</h4>
+                                    <p>Upload an image or pick a sample on the left to start real-time neural vision processing.</p>
+                                </div>
+
+                                <!-- Scanning Active Progress View -->
+                                <div class="scanning-active-view hidden" id="scanningActiveView">
+                                    <div class="scanner-circular-gauge">
+                                        <svg class="progress-ring" width="160" height="160">
+                                            <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.08)" stroke-width="10" fill="transparent" r="70" cx="80" cy="80"/>
+                                            <circle class="progress-ring-circle" id="scanProgressRing" stroke="#00E5FF" stroke-width="10" stroke-linecap="round" fill="transparent" r="70" cx="80" cy="80"/>
+                                        </svg>
+                                        <div class="gauge-center-text">
+                                            <span class="gauge-percent" id="scanPercentText">0%</span>
+                                            <span class="gauge-caption">Processing</span>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="scan-stage-title" id="scanStageTitle">Initializing Optical Pipeline...</h4>
+
+                                    <!-- Pipeline Checklist -->
+                                    <div class="pipeline-checklist">
+                                        <div class="check-step" id="stepAlignment">
+                                            <div class="step-indicator"><i data-lucide="check"></i></div>
+                                            <span>Corneal & Iris Feature Alignment</span>
+                                        </div>
+                                        <div class="check-step" id="stepPupil">
+                                            <div class="step-indicator"><i data-lucide="check"></i></div>
+                                            <span>Pupil Symmetry & Centroid Mapping</span>
+                                        </div>
+                                        <div class="check-step" id="stepCurvature">
+                                            <div class="step-indicator"><i data-lucide="check"></i></div>
+                                            <span>Refractive Curvature & Aberration Analysis</span>
+                                        </div>
+                                        <div class="check-step" id="stepYOLO">
+                                            <div class="step-indicator"><i data-lucide="check"></i></div>
+                                            <span>YOLO Neural Classification & Confidence Scoring</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Completed Diagnostic Result View -->
+                                <div class="scan-result-card hidden" id="scanResultCard">
+                                    <div class="result-badge-banner" id="resultBanner">
+                                        <div class="result-icon-glow" id="resultIconGlow">
+                                            <i data-lucide="check-circle-2"></i>
+                                        </div>
+                                        <div class="result-banner-info">
+                                            <span class="result-label">Clinical AI Finding:</span>
+                                            <h3 class="result-condition-title" id="resultConditionTitle">Normal Vision</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="result-scores-grid">
+                                        <div class="score-box">
+                                            <span class="score-label">AI Confidence</span>
+                                            <span class="score-number" id="resultConfidenceVal">97.5%</span>
+                                        </div>
+                                        <div class="score-box">
+                                            <span class="score-label">Eye Health Index</span>
+                                            <span class="score-number green" id="resultHealthVal">98/100</span>
+                                        </div>
+                                        <div class="score-box">
+                                            <span class="score-label">Inference Time</span>
+                                            <span class="score-number" id="resultInferenceTime">0.65s</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="biometric-metrics-list">
+                                        <h5><i data-lucide="sliders"></i> Biometric Analysis</h5>
+                                        <div class="metric-row">
+                                            <span>Corneal Symmetry:</span>
+                                            <strong id="metricCorneal">Optimal (98%)</strong>
+                                        </div>
+                                        <div class="metric-row">
+                                            <span>Pupil Alignment:</span>
+                                            <strong id="metricPupil">Centered</strong>
+                                        </div>
+                                        <div class="metric-row">
+                                            <span>Refractive Index:</span>
+                                            <strong id="metricRefraction">Normal (1.00)</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="clinical-recommendation-box">
+                                        <h5><i data-lucide="glasses"></i> Recommended Lens Prescription:</h5>
+                                        <p id="resultLensText">Anti-Glare & Blue Light Filter Lens</p>
+                                    </div>
+
+                                    <div class="result-action-buttons">
+                                        <button class="btn-primary-glow" onclick="app.viewReportFromResult()">
+                                            <i data-lucide="file-text"></i> View Clinical Report
+                                        </button>
+                                        <button class="btn-secondary-glow" onclick="app.switchTab('lenses')">
+                                            <i data-lucide="glasses"></i> Lens Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 3: SCAN HISTORY -->
+                <section class="tab-pane" id="tabHistory">
+                    <div class="section-block">
+                        <div class="section-header flex-between">
+                            <div>
+                                <h2 class="section-title">Diagnostic History & Records</h2>
+                                <span class="section-subtitle">View and export past ophthalmological assessments</span>
+                            </div>
+                            <button class="btn-secondary-glow" onclick="app.refreshHistory()">
+                                <i data-lucide="refresh-cw"></i> Refresh Records
+                            </button>
+                        </div>
+
+                        <div class="table-card">
+                            <table class="custom-table" id="fullHistoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Record #</th>
+                                        <th>Date & Time</th>
+                                        <th>Diagnosed Condition</th>
+                                        <th>AI Confidence</th>
+                                        <th>Health Score</th>
+                                        <th>Prescribed Lens</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fullHistoryBody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 4: LENS ADVISOR -->
+                <section class="tab-pane" id="tabLenses">
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">Intelligent Lens Recommendations</h2>
+                            <span class="section-subtitle">Precision engineered optical lenses tailored for your lifestyle and refractive findings</span>
+                        </div>
+
+                        <!-- Active Recommendation Highlight -->
+                        <div class="active-lens-spotlight" id="activeLensSpotlight">
+                            <div class="spotlight-badge"><i data-lucide="award"></i> Recommended for You</div>
+                            <div class="spotlight-body">
+                                <div class="spotlight-info">
+                                    <h3 id="spotlightLensTitle">Anti-Glare & Blue Light Filter Lens</h3>
+                                    <p id="spotlightLensDesc">Engineered with multi-layer nano-coatings to neutralize 99.9% of harmful HEV blue light emissions from digital monitors and eliminate distracting glare.</p>
+                                    <div class="lens-spec-tags" id="spotlightLensTags">
+                                        <span class="spec-tag">UV400 Protection</span>
+                                        <span class="spec-tag">Hydrophobic Coating</span>
+                                        <span class="spec-tag">Anti-Reflective</span>
+                                        <span class="spec-tag">Ultra High-Index 1.67</span>
+                                    </div>
+                                </div>
+                                <div class="spotlight-graphic">
+                                    <div class="lens-glass-mockup">
+                                        <div class="lens-circle">
+                                            <div class="lens-coating-sheen"></div>
+                                            <i data-lucide="glasses"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lens Catalog Grid -->
+                        <div class="lens-catalog-grid">
+                            <div class="lens-card">
+                                <div class="lens-icon-header blue"><i data-lucide="shield"></i></div>
+                                <h4>Blue Cut Guard Lens</h4>
+                                <p>Filters digital high-energy visible blue light. Reduces eye fatigue and improves circadian sleep cycles.</p>
+                                <ul class="lens-features">
+                                    <li><i data-lucide="check"></i> 99.4% Blue Light Block</li>
+                                    <li><i data-lucide="check"></i> Scratch-Resistant Hard Coat</li>
+                                    <li><i data-lucide="check"></i> Zero Yellow Tint Distortion</li>
+                                </ul>
+                                <div class="lens-card-footer">
+                                    <span class="lens-ideal">Ideal for: Programmers & Office</span>
+                                </div>
+                            </div>
+
+                            <div class="lens-card">
+                                <div class="lens-icon-header cyan"><i data-lucide="sparkles"></i></div>
+                                <h4>Single Vision Concave Lens</h4>
+                                <p>Precision minus-power lenses designed to diverge light rays onto the retina for crystal-clear distance vision.</p>
+                                <ul class="lens-features">
+                                    <li><i data-lucide="check"></i> Myopia Vision Correction</li>
+                                    <li><i data-lucide="check"></i> Aspheric Thin Profile</li>
+                                    <li><i data-lucide="check"></i> Edge-to-Edge Clarity</li>
+                                </ul>
+                                <div class="lens-card-footer">
+                                    <span class="lens-ideal">Ideal for: Myopia & Driving</span>
+                                </div>
+                            </div>
+
+                            <div class="lens-card">
+                                <div class="lens-icon-header purple"><i data-lucide="circle-dot"></i></div>
+                                <h4>Toric Cylindrical Lens</h4>
+                                <p>Custom-curved toric meridians that compensate for irregular corneal curvature to eliminate astigmatic blur.</p>
+                                <ul class="lens-features">
+                                    <li><i data-lucide="check"></i> Astigmatism Axis Alignment</li>
+                                    <li><i data-lucide="check"></i> Anti-Distortion Geometry</li>
+                                    <li><i data-lucide="check"></i> High Clarity Index</li>
+                                </ul>
+                                <div class="lens-card-footer">
+                                    <span class="lens-ideal">Ideal for: Astigmatism</span>
+                                </div>
+                            </div>
+
+                            <div class="lens-card">
+                                <div class="lens-icon-header green"><i data-lucide="sun"></i></div>
+                                <h4>Photochromic Transitions</h4>
+                                <p>Dynamic optical molecules that adapt from crystal clear indoors to deep tinted sunglass outdoors under UV light.</p>
+                                <ul class="lens-features">
+                                    <li><i data-lucide="check"></i> 100% UVA & UVB Shield</li>
+                                    <li><i data-lucide="check"></i> Fast Indoor Transition</li>
+                                    <li><i data-lucide="check"></i> Polarized Glare Cut</li>
+                                </ul>
+                                <div class="lens-card-footer">
+                                    <span class="lens-ideal">Ideal for: Outdoor & Indoor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 5: CLINICAL REPORT (PRINTABLE) -->
+                <section class="tab-pane" id="tabReport">
+                    <div class="report-toolbar">
+                        <div class="report-toolbar-info">
+                            <h2>Clinical Ophthalmic Report</h2>
+                            <span class="text-muted">Official AI Diagnostic Medical Record</span>
+                        </div>
+                        <div class="report-toolbar-btns">
+                            <button class="btn-secondary-glow" onclick="window.print()">
+                                <i data-lucide="printer"></i> Print Report
+                            </button>
+                            <button class="btn-primary-glow" onclick="app.downloadReportAsJSON()">
+                                <i data-lucide="download"></i> Download Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Printable Medical Certificate Layout -->
+                    <div class="clinical-sheet" id="clinicalReportSheet">
+                        <div class="sheet-header">
+                            <div class="sheet-clinic-info">
+                                <div class="sheet-logo">
+                                    <i data-lucide="eye"></i>
+                                    <span>OptiSight <strong>Health AI</strong></span>
+                                </div>
+                                <span class="clinic-sub">Advanced Autonomous Ophthalmology Institute</span>
+                                <span class="clinic-sub">Accreditation: ISO-13485 AI Medical Protocol</span>
+                            </div>
+                            <div class="sheet-meta-badge">
+                                <span class="badge-title">REPORT REFERENCE</span>
+                                <span class="badge-code" id="repReportCode">OPT-2026-8849</span>
+                                <span class="badge-date" id="repDateText">27 August 2026</span>
+                            </div>
+                        </div>
+
+                        <hr class="sheet-divider">
+
+                        <div class="sheet-patient-info-grid">
+                            <div class="patient-field">
+                                <span class="lbl">Patient Name</span>
+                                <strong class="val" id="repPatientName">Sunil Kumar Yadav</strong>
+                            </div>
+                            <div class="patient-field">
+                                <span class="lbl">Patient ID / Email</span>
+                                <strong class="val" id="repPatientEmail">sunil.kumar@example.com</strong>
+                            </div>
+                            <div class="patient-field">
+                                <span class="lbl">Age & Gender</span>
+                                <strong class="val" id="repPatientAgeGender">24 Yrs / Male</strong>
+                            </div>
+                            <div class="patient-field">
+                                <span class="lbl">Assessment Method</span>
+                                <strong class="val">OptiSight YOLOv11 Neural Scanner</strong>
+                            </div>
+                        </div>
+
+                        <div class="sheet-diagnostic-summary">
+                            <h4 class="sheet-section-title">Diagnostic Findings & Condition</h4>
+                            <div class="diag-banner">
+                                <div class="diag-col">
+                                    <span class="lbl">Primary Diagnosis:</span>
+                                    <span class="condition-highlight" id="repCondition">Normal Vision</span>
+                                </div>
+                                <div class="diag-col">
+                                    <span class="lbl">Diagnostic Confidence:</span>
+                                    <span class="confidence-highlight" id="repConfidence">97.5%</span>
+                                </div>
+                                <div class="diag-col">
+                                    <span class="lbl">Eye Health Index:</span>
+                                    <span class="health-highlight" id="repHealthScore">98 / 100</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sheet-metrics-table">
+                            <h4 class="sheet-section-title">Biometric Parameters</h4>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th>Measurement Parameter</th>
+                                        <th>Observed Value</th>
+                                        <th>Reference Range</th>
+                                        <th>Evaluation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Corneal Symmetry</td>
+                                        <td id="repMetricCorneal">Optimal (98%)</td>
+                                        <td>90% - 100%</td>
+                                        <td><span class="status-badge-sm pass">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pupil Centroid Alignment</td>
+                                        <td id="repMetricPupil">Centered</td>
+                                        <td>Centered (&lt; 0.2mm offset)</td>
+                                        <td><span class="status-badge-sm pass">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Estimated Refractive Index</td>
+                                        <td id="repMetricRefraction">Normal (1.00)</td>
+                                        <td>-0.50 D to +0.50 D</td>
+                                        <td><span class="status-badge-sm pass">Pass</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="sheet-lens-advice">
+                            <h4 class="sheet-section-title">Prescribed Lens & Optical Solution</h4>
+                            <div class="advice-card">
+                                <strong id="repLensTitle">Anti-Glare & Blue Light Filter Lens</strong>
+                                <p id="repLensAdvice">Recommended high-index anti-reflective coating with 400nm UV filtration. Ensures maximum visual comfort during digital screen interactions.</p>
+                            </div>
+                        </div>
+
+                        <div class="sheet-tips-box">
+                            <h4 class="sheet-section-title">Preventive Care Directives</h4>
+                            <ul id="repClinicalTipsList">
+                                <li>Follow the 20-20-20 rule: Every 20 minutes look at an object 20 feet away for 20 seconds.</li>
+                                <li>Maintain a minimum distance of 20 to 24 inches from digital display screens.</li>
+                                <li>Ensure adequate ambient room illumination while reading or working.</li>
+                            </ul>
+                        </div>
+
+                        <div class="sheet-footer">
+                            <div class="sheet-qr-box">
+                                <div class="qr-mockup"><i data-lucide="qr-code"></i></div>
+                                <span>Verified by OptiSight AI Engine</span>
+                            </div>
+                            <div class="sheet-signature">
+                                <div class="signature-line">Dr. A. Verma, M.S. (Ophthal.) / AI Clinical Lead</div>
+                                <span>Authorized Digital Sign-off</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 6: EYE HEALTH TIPS -->
+                <section class="tab-pane" id="tabTips">
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">Eye Wellness & Preventative Care</h2>
+                            <span class="section-subtitle">Scientifically validated ergonomics and visual endurance practices</span>
+                        </div>
+
+                        <!-- Interactive 20-20-20 Timer Card -->
+                        <div class="timer-feature-card">
+                            <div class="timer-graphic">
+                                <div class="timer-dial" id="timerDial">
+                                    <span class="timer-countdown" id="timerCountdown">20:00</span>
+                                    <span class="timer-label">Focus Interval</span>
+                                </div>
+                            </div>
+                            <div class="timer-details">
+                                <h3><i data-lucide="alarm-clock"></i> The 20-20-20 Rest Rule</h3>
+                                <p>To prevent Digital Eye Strain (Asthenopia), take a 20-second break every 20 minutes to gaze at something 20 feet (6 meters) away.</p>
+                                <div class="timer-actions">
+                                    <button class="btn-primary-glow" id="btnToggleTimer">
+                                        <i data-lucide="play" id="timerIcon"></i> <span id="timerBtnText">Start 20m Timer</span>
+                                    </button>
+                                    <button class="btn-surface-sm" id="btnResetTimer">
+                                        <i data-lucide="rotate-ccw"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Educational Tips Cards -->
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon blue"><i data-lucide="monitor"></i></div>
+                                <h4>Ergonomic Screen Positioning</h4>
+                                <p>Position computer displays 20 to 24 inches away with the top of the monitor level with eye height so you gaze slightly downward.</p>
+                            </div>
+
+                            <div class="tip-card">
+                                <div class="tip-icon cyan"><i data-lucide="droplet"></i></div>
+                                <h4>Active Blinking & Hydration</h4>
+                                <p>Digital screens reduce natural blink rates by 50%. Practice deliberate blinking and stay well hydrated to protect the tear film.</p>
+                            </div>
+
+                            <div class="tip-card">
+                                <div class="tip-icon purple"><i data-lucide="sun"></i></div>
+                                <h4>Ambient Lighting Balance</h4>
+                                <p>Avoid high contrast glare. Ensure room lighting matches the brightness of your display and eliminate harsh backlights.</p>
+                            </div>
+
+                            <div class="tip-card">
+                                <div class="tip-icon green"><i data-lucide="apple"></i></div>
+                                <h4>Ocular Nutrition (Lutein & Zeaxanthin)</h4>
+                                <p>Nutrients such as Lutein, Zeaxanthin, Omega-3 fatty acids, and Vitamin A promote retinal and macular cell vitality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 7: PROFILE & SETTINGS -->
+                <section class="tab-pane" id="tabProfile">
+                    <div class="settings-layout-grid">
+                        <!-- Profile Card -->
+                        <div class="settings-card">
+                            <div class="card-title-bar">
+                                <h3><i data-lucide="user"></i> Patient Profile</h3>
+                                <span class="card-sub">Manage your personal and diagnostic details</span>
+                            </div>
+
+                            <form id="profileForm" class="custom-form">
+                                <div class="form-group">
+                                    <label for="profFullName">Full Name</label>
+                                    <input type="text" id="profFullName" value="Sunil Kumar Yadav" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profEmail">Email Address</label>
+                                    <input type="email" id="profEmail" value="sunil.kumar@example.com" disabled>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="profMobile">Mobile Number</label>
+                                        <input type="text" id="profMobile" value="+91 93925 71978">
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="profAge">Age</label>
+                                        <input type="number" id="profAge" value="24" min="1" max="120">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profGender">Gender</label>
+                                    <select id="profGender">
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn-primary-glow" id="btnSaveProfile">
+                                    <i data-lucide="save"></i> Save Changes
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- App Settings -->
+                        <div class="settings-card">
+                            <div class="card-title-bar">
+                                <h3><i data-lucide="sliders"></i> System & API Settings</h3>
+                                <span class="card-sub">Backend connections and visual preferences</span>
+                            </div>
+
+                            <div class="settings-options-list">
+                                <div class="setting-item">
+                                    <div class="setting-desc">
+                                        <strong>Dark / Light Theme</strong>
+                                        <span>Switch interface color scheme</span>
+                                    </div>
+                                    <button class="btn-surface-sm" onclick="app.toggleTheme()">
+                                        <i data-lucide="sun-moon"></i> Toggle Theme
+                                    </button>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-desc">
+                                        <strong>FastAPI Backend Server</strong>
+                                        <span>REST endpoints & AI Model Pipeline</span>
+                                    </div>
+                                    <button class="btn-secondary-glow btn-sm" onclick="app.testBackendHealth()">
+                                        <i data-lucide="activity"></i> Test Health
+                                    </button>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-desc">
+                                        <strong>Auto-Save AI Scan History</strong>
+                                        <span>Automatically persist scan results to SQLite database</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="chkAutoSave" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-desc">
+                                        <strong>Active AI Model</strong>
+                                        <span>Ultralytics YOLOv11 Ocular Classifier</span>
+                                    </div>
+                                    <span class="badge-pill">YOLO11n Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Auth Modal (Login / Register / Forgot Password) -->
+    <div class="modal-backdrop hidden" id="authModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="brand-logo-glow sm">
+                    <i data-lucide="eye"></i>
+                </div>
+                <h3 id="authModalTitle">Welcome to OptiSight AI</h3>
+                <p id="authModalSub">Login or sign in to access vision health records</p>
+                <button class="modal-close-btn" id="btnCloseAuthModal"><i data-lucide="x"></i></button>
+            </div>
+
+            <!-- Auth Tabs -->
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="tabBtnLogin" onclick="app.switchAuthMode('login')">Login</button>
+                <button class="modal-tab" id="tabBtnRegister" onclick="app.switchAuthMode('register')">Register</button>
+                <button class="modal-tab" id="tabBtnForgot" onclick="app.switchAuthMode('forgot')">Recover</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Login Form -->
+                <form id="formLogin" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="sunil.kumar@example.com" value="sunil.kumar@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" value="password123" required>
+                    </div>
+                    <button type="submit" class="btn-primary-glow w-100">
+                        <i data-lucide="log-in"></i> Sign In
+                    </button>
+                    <button type="button" class="btn-ghost-sm w-100 mt-2" onclick="app.switchAuthMode('forgot')">
+                        Forgot Password?
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="formRegister" class="auth-form hidden">
+                    <div class="form-group">
+                        <label for="regFullName">Full Name</label>
+                        <input type="text" id="regFullName" placeholder="e.g. John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" placeholder="At least 6 characters" required>
+                    </div>
+                    <button type="submit" class="btn-primary-glow w-100">
+                        <i data-lucide="user-plus"></i> Create Account
+                    </button>
+                </form>
+
+                <!-- Forgot Password Form -->
+                <form id="formForgot" class="auth-form hidden">
+                    <div class="form-group">
+                        <label for="forgotEmail">Registered Email</label>
+                        <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn-primary-glow w-100">
+                        <i data-lucide="send"></i> Send Reset Link / OTP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Application Script -->
+    <script src="/static/app.js"></script>
+</body>
+</html>

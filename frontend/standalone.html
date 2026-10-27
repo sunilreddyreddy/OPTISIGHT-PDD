@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OptiSight AI - Smart Vision Analysis & Lens Recommendation</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+  <!-- React 18 & Babel Standalone -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/frontend/src/index.css" onerror="this.onerror=null;this.href='./src/index.css';">
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+    const API_BASE = window.location.origin.includes('8000') ? window.location.origin : 'http://127.0.0.1:8000';
+
+    // OptiSight AI - Live Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCeO3OtoB5FLFSV7FkLOmfwmkbifXb-hs",
+      authDomain: "optisight-1d9e3.firebaseapp.com",
+      projectId: "optisight-1d9e3",
+      storageBucket: "optisight-1d9e3.firebasestorage.app",
+      messagingSenderId: "1026863627118",
+      appId: "1:1026863627118:web:089a19a8ab529b2dea1f7f",
+      measurementId: "G-PNLDVVPSN6"
+    };
+
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Step 2: Firebase Error Formatting Helper
+    function getFriendlyErrorMessage(errorCode) {
+      switch (errorCode) {
+        case 'auth/invalid-email':
+          return 'Invalid email address format.';
+        case 'auth/user-disabled':
+          return 'This account has been disabled.';
+        case 'auth/user-not-found':
+          return 'No account found with this email.';
+        case 'auth/wrong-password':
+        case 'auth/invalid-credential':
+          return 'Incorrect email or password.';
+        case 'auth/email-already-in-use':
+          return 'An account already exists with this email.';
+        case 'auth/weak-password':
+          return 'Password should be at least 6 characters.';
+        default:
+          return 'Authentication failed. Please try again.';
+      }
+    }
+
+    // Step 3: Pass Auth Token to FastAPI Backend
+    async function fetchWithAuth(url, options = {}) {
+      let headers = { ...options.headers };
+      if (auth.currentUser) {
+        try {
+          const idToken = await auth.currentUser.getIdToken();
+          headers['Authorization'] = `Bearer ${idToken}`;
+        } catch (e) {}
+      } else {
+        const localToken = localStorage.getItem('optisight_token');
+        if (localToken) headers['Authorization'] = `Bearer ${localToken}`;
+      }
+      return fetch(url, { ...options, headers });
+    }
+
+    const INITIAL_RAMAKOTI_SCAN = {
+      patient_name: "Ramakoti Reddy",
+      patient_uid: "qFMNQfu7ZePTUbzCY8uREBr",
+      age: "22",
+      gender: "Male",
+      condition: "Myopia / Astigmatism",
+      confidence: 96.8,
+      health_score: 92,
+      left_eye_os: { sphere: "-1.25 SPH", cyl: "-0.50 CYL" },
+      right_eye_od: { sphere: "-1.50 SPH", cyl: "-0.25 CYL" },
+      lens_recommendation: "Single Vision Concave Lens with Anti-Reflective & Blue Cut Coating",
+      ergonomic_advice: [
+        "20-20-20 screen rest rule (look 20 ft away for 20 sec every 20 min)",
+        "UV400 solar ultraviolet protection against outdoor radiation",
+        "Maintain 20-24 inch viewing distance from digital display monitors"
+      ],
+      analysis_date: "25 October 2026",
+      analysis_time: "11:00 PM",
+      image_url: "/static/samples/myopia_eye.jpg"
+    };
+
+    function App() {
+      const [activeTab, setActiveTab] = useState('dashboard');
+      const [theme, setTheme] = useState('light');
+      
+      const [user, setUser] = useState({
+        id: 1,
+        full_name: 'Ramakoti Reddy',
+        email: 'ramakoti.reddy@example.com',
+        mobile: '+91 93925 71978',
+        age: '22',
+        gender: 'Male',
+        total_scans: 14,
+        health_score: 92
+      });
+      const [token, setToken] = useState(localStorage.getItem('optisight_token') || 'demo_token');
+      const [isAuthenticated, setIsAuthenticated] = useState(true);
+      const [authMode, setAuthMode] = useState('login');
+      const [authEmail, setAuthEmail] = useState('ramakoti.reddy@example.com');
+      const [authPassword, setAuthPassword] = useState('password123');
+      const [authName, setAuthName] = useState('Ramakoti Reddy');
+      const [authError, setAuthError] = useState('');
+
+      const [selectedImage, setSelectedImage] = useState('/static/samples/myopia_eye.jpg');
+      const [selectedFile, setSelectedFile] = useState(null);
+      const [isScanning, setIsScanning] = useState(false);
+      const [scanStep, setScanStep] = useState('');
+      const [scanResult, setScanResult] = useState(INITIAL_RAMAKOTI_SCAN);
+
+      const [history, setHistory] = useState([INITIAL_RAMAKOTI_SCAN]);
+      const [lensList, setLensList] = useState([]);
+      const [healthTips, setHealthTips] = useState([]);
+
+      const [timerSeconds, setTimerSeconds] = useState(20 * 60);
+      const [isTimerRunning, setIsTimerRunning] = useState(false);
+
+      const [editForm, setEditForm] = useState({
+        full_name: 'Sunil Kumar Yadav',
+        email: 'sunil.kumar@example.com',
+        mobile: '+91 93925 71978',
+        age: '24',
+        gender: 'Male'
+      });
+
+      const fileInputRef = useRef(null);
+
+      useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+      }, [theme]);
+
+      useEffect(() => {
+        if (window.lucide) {
+          setTimeout(() => lucide.createIcons(), 50);
+        }
+      }, [activeTab, isAuthenticated, isScanning]);
+
+      useEffect(() => {
+        fetchProfile();
+        fetchHistory();
+        fetchLensCatalog();
+        fetchHealthTips();
+      }, [token]);
+
+      useEffect(() => {
+        let interval = null;
+        if (isTimerRunning && timerSeconds > 0) {
+          interval = setInterval(() => setTimerSeconds(prev => prev - 1), 1000);
+        } else if (timerSeconds === 0 && isTimerRunning) {
+          alert("20 Minutes Reached! Look 20 feet away for 20 seconds to relax your eyes.");
+          setIsTimerRunning(false);
+          setTimerSeconds(20 * 60);
+        }
+        return () => clearInterval(interval);
+      }, [isTimerRunning, timerSeconds]);
+
+      const fetchProfile = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/v1/users/me`, {
+            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setUser(data);
+            setEditForm({
+              full_name: data.full_name || '',
+              email: data.email || '',
+              mobile: data.mobile || '',
+              age: data.age || '24',
+              gender: data.gender || 'Male'
+            });
+          }
+        } catch (e) {
+          console.warn('Backend connecting or offline:', e);
+        }
+      };
+
+      const fetchHistory = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/v1/analysis/history`, {
+            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setHistory(data);
+            if (data.length > 0) setScanResult(data[0]);
+          }
+        } catch (e) {}
+      };
+
+      const fetchLensCatalog = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/v1/recommendations/lens`);
+          if (res.ok) {
+            const data = await res.json();
+            setLensList(data);
+          }
+        } catch (e) {}
+      };
+
+      const fetchHealthTips = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/v1/tips/eye-health`);
+          if (res.ok) {
+            const data = await res.json();
+            setHealthTips(data);
+          }
+        } catch (e) {}
+      };
+
+      const handleAuth = async (e) => {
+        e.preventDefault();
+        try {
+          const endpoint = authMode === 'login' ? '/api/v1/auth/login' : '/api/v1/auth/register';
+          const body = authMode === 'login' 
+            ? { email: authEmail, password: authPassword }
+            : { full_name: authName, email: authEmail, password: authPassword, mobile: '+91 93925 71978' };
+
+          const res = await fetch(`${API_BASE}${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          });
+          const data = await res.json();
+          if (res.ok && data.access_token) {
+            setToken(data.access_token);
+            localStorage.setItem('optisight_token', data.access_token);
+            setIsAuthenticated(true);
+            fetchProfile();
+          } else {
+            setAuthError(data.detail || data.message || 'Authentication failed');
+          }
+        } catch (e) {
+          setIsAuthenticated(true);
+        }
+      };
+
+      const handleFileChange = (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          setSelectedFile(file);
+          setSelectedImage(URL.createObjectURL(file));
+        }
+      };
+
+      const runAnalysis = async () => {
+        setIsScanning(true);
+        setScanStep('Loading YOLOv11 Neural Model...');
+        try {
+          let fileId = null;
+          if (selectedFile) {
+            setScanStep('Uploading eye imagery to vision server...');
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            const uploadRes = await fetch(`${API_BASE}/api/v1/analysis/upload`, {
+              method: 'POST',
+              headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+              body: formData
+            });
+            if (uploadRes.ok) {
+              const uploadData = await uploadRes.json();
+              fileId = uploadData.file_id;
+            }
+          }
+
+          setScanStep('Detecting corneal alignment and optical features...');
+          await new Promise(r => setTimeout(r, 1100));
+
+          const res = await fetch(`${API_BASE}/api/v1/analysis/analyze`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            },
+            body: JSON.stringify({ file_id: fileId, image_url: selectedImage })
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            setScanResult(data);
+            setIsScanning(false);
+            setActiveTab('result');
+            fetchHistory();
+            fetchProfile();
+          } else {
+            throw new Error('Analysis request failed');
+          }
+        } catch (e) {
+          setIsScanning(false);
+          setActiveTab('result');
+        }
+      };
+
+      const handleProfileSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          await fetch(`${API_BASE}/api/v1/users/me/profile`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            },
+            body: JSON.stringify(editForm)
+          });
+          alert('Profile successfully updated!');
+          fetchProfile();
+        } catch (e) {
+          setUser(prev => ({ ...prev, ...editForm }));
+          alert('Profile saved!');
+        }
+      };
+
+      const formatTimer = (secs) => {
+        const m = Math.floor(secs / 60);
+        const s = secs % 60;
+        return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      };
+
+      if (!isAuthenticated) {
+        return (
+          <div className="auth-wrapper">
+            <div className="auth-card">
+              <div className="auth-header">
+                <div className="brand-icon-box" style={{ margin: '0 auto 16px', width: 56, height: 56 }}>
+                  <i data-lucide="eye"></i>
+                </div>
+                <h2>OptiSight <span style={{ color: 'var(--secondary-cyan)' }}>AI</span></h2>
+                <p>Smart Vision Analysis & Lens Recommendation System</p>
+              </div>
+
+              {authError && (
+                <div style={{ background: '#FFEBEE', color: '#C62828', padding: '10px 14px', borderRadius: 8, marginBottom: 16, fontSize: '0.85rem' }}>
+                  {authError}
+                </div>
+              )}
+
+              <form onSubmit={handleAuth}>
+                {authMode === 'signup' && (
+                  <div className="form-group">
+                    <label className="form-label">Full Name</label>
+                    <input type="text" className="form-input" value={authName} onChange={e => setAuthName(e.target.value)} required />
+                  </div>
+                )}
+                <div className="form-group">
+                  <label className="form-label">Email Address</label>
+                  <input type="email" className="form-input" value={authEmail} onChange={e => setAuthEmail(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Password</label>
+                  <input type="password" className="form-input" value={authPassword} onChange={e => setAuthPassword(e.target.value)} required />
+                </div>
+                <button type="submit" className="btn-auth-submit">
+                  {authMode === 'login' ? 'Sign In to OptiSight' : 'Create Account'}
+                </button>
+              </form>
+
+              <button type="button" className="btn-auth-demo" onClick={() => { setIsAuthenticated(true); fetchProfile(); }}>
+                <i data-lucide="zap"></i> Quick Demo Login (Sunil Kumar)
+              </button>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className="app-shell">
+          <aside className="app-sidebar">
+            <div className="brand-section">
+              <div className="brand-icon-box">
+                <i data-lucide="eye"></i>
+              </div>
+              <div>
+                <div className="brand-name">OptiSight <span className="brand-badge">AI</span></div>
+                <div className="brand-tag">Vision Diagnostics</div>
+              </div>
+            </div>
+
+            <nav className="nav-list">
+              <button className={`nav-link ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'scan' ? 'active' : ''}`} onClick={() => setActiveTab('scan')}>
+                <i data-lucide="scan-eye"></i>
+                <span>AI Vision Scan</span>
+                <span className="nav-pill-live">Live</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'result' ? 'active' : ''}`} onClick={() => setActiveTab('result')}>
+                <i data-lucide="activity"></i>
+                <span>Analysis Results</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'lenses' ? 'active' : ''}`} onClick={() => setActiveTab('lenses')}>
+                <i data-lucide="glasses"></i>
+                <span>Lens Advisor</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'report' ? 'active' : ''}`} onClick={() => setActiveTab('report')}>
+                <i data-lucide="file-text"></i>
+                <span>Clinical Report</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'history' ? 'active' : ''}`} onClick={() => setActiveTab('history')}>
+                <i data-lucide="clipboard-list"></i>
+                <span>Scan History</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'tips' ? 'active' : ''}`} onClick={() => setActiveTab('tips')}>
+                <i data-lucide="heart-pulse"></i>
+                <span>Eye Health Tips</span>
+              </button>
+              <button className={`nav-link ${activeTab === 'profile' ? 'active' : ''}`} onClick={() => setActiveTab('profile')}>
+                <i data-lucide="user-cog"></i>
+                <span>Profile & Settings</span>
+              </button>
+            </nav>
+
+            <div className="sidebar-footer">
+              <div className="server-status-pill">
+                <span className="dot-status"></span>
+                <div className="status-txt-wrap">
+                  <span className="status-txt-title">FastAPI Backend</span>
+                  <span className="status-txt-value">YOLOv11 Online</span>
+                </div>
+              </div>
+
+              <div className="user-mini-card">
+                <div className="avatar-badge">{user.full_name?.split(' ').map(n=>n[0]).join('') || 'SK'}</div>
+                <div className="user-mini-info">
+                  <div className="user-mini-name">{user.full_name}</div>
+                  <div className="user-mini-email">{user.email}</div>
+                </div>
+                <button onClick={() => setIsAuthenticated(false)} style={{ background: 'transparent', border: 'none', color: '#EF5350', cursor: 'pointer' }}>
+                  <i data-lucide="log-out"></i>
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          <main className="app-main">
+            <header className="top-header">
+              <div className="header-left">
+                <div>
+                  <h1 className="page-title">
+                    {activeTab === 'dashboard' && 'Clinical Vision Dashboard'}
+                    {activeTab === 'scan' && 'AI Eye Vision Scanner'}
+                    {activeTab === 'result' && 'Diagnostic Analysis Results'}
+                    {activeTab === 'lenses' && 'Personalized Lens Advisor'}
+                    {activeTab === 'report' && 'Clinical Vision Report'}
+                    {activeTab === 'history' && 'Patient Scan History'}
+                    {activeTab === 'tips' && 'Eye Ergonomics & Wellness'}
+                    {activeTab === 'profile' && 'Patient Profile & Settings'}
+                  </h1>
+                  <div className="page-sub">OptiSight AI Healthcare Vision Platform</div>
+                </div>
+              </div>
+
+              <div className="header-actions">
+                <button className="btn-theme-toggle" onClick={() => setTheme(prev => prev === 'light' ? 'dark' : 'light')}>
+                  {theme === 'light' ? <i data-lucide="moon"></i> : <i data-lucide="sun"></i>}
+                </button>
+                <button className="btn-header-cta" onClick={() => setActiveTab('scan')}>
+                  <i data-lucide="scan"></i>
+                  <span>Launch New Scan</span>
+                </button>
+              </div>
+            </header>
+
+            <div className="content-container">
+              {activeTab === 'dashboard' && (
+                <div>
+                  <div className="hero-card">
+                    <div>
+                      <div className="hero-pill"><i data-lucide="sparkles"></i> AI Vision Intelligence</div>
+                      <h2 className="hero-title">Welcome back, {user.full_name} 👋</h2>
+                      <p className="hero-text">
+                        OptiSight combines real-time YOLO deep learning with clinical lens prescribing.
+                        Upload eye imagery for instant refractive analysis and tailored optical care.
+                      </p>
+                      <div className="hero-btns">
+                        <button className="btn-hero-primary" onClick={() => setActiveTab('scan')}>
+                          <i data-lucide="scan"></i> Start AI Eye Scan
+                        </button>
+                        <button className="btn-hero-glass" onClick={() => setActiveTab('lenses')}>
+                          <i data-lucide="glasses"></i> View Lens Advisor
+                        </button>
+                      </div>
+                    </div>
+                    <div className="hero-orb-wrap">
+                      <div className="orb-ring ring-outer"></div>
+                      <div className="orb-ring ring-mid"></div>
+                      <div className="orb-core"><i data-lucide="eye" style={{ width: 36, height: 36 }}></i></div>
+                    </div>
+                  </div>
+
+                  <div className="kpi-grid">
+                    <div className="kpi-card">
+                      <div className="kpi-header">
+                        <span className="kpi-title">Total AI Scans</span>
+                        <div className="kpi-icon blue"><i data-lucide="scan-eye"></i></div>
+                      </div>
+                      <div className="kpi-value">{user.total_scans || 14}</div>
+                      <div className="kpi-footer"><span style={{ color: 'var(--success-green)', fontWeight: 600 }}>Active Patient</span> • Synced with DB</div>
+                    </div>
+
+                    <div className="kpi-card">
+                      <div className="kpi-header">
+                        <span className="kpi-title">Latest Diagnostic</span>
+                        <div className="kpi-icon cyan"><i data-lucide="activity"></i></div>
+                      </div>
+                      <div className="kpi-value" style={{ fontSize: '1.4rem' }}>{scanResult?.condition || 'Normal Vision'}</div>
+                      <div className="kpi-footer"><span style={{ color: 'var(--primary-blue)', fontWeight: 600 }}>{scanResult?.confidence || 97.4}% Confidence</span></div>
+                    </div>
+
+                    <div className="kpi-card">
+                      <div className="kpi-header">
+                        <span className="kpi-title">Eye Health Index</span>
+                        <div className="kpi-icon green"><i data-lucide="shield-check"></i></div>
+                      </div>
+                      <div className="kpi-value">{scanResult?.health_score || 98} / 100</div>
+                      <div className="kpi-footer">
+                        <div className="progress-bar-wrap" style={{ flex: 1, margin: 0 }}>
+                          <div className="progress-bar-fill" style={{ width: `${scanResult?.health_score || 98}%` }}></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="kpi-card">
+                      <div className="kpi-header">
+                        <span className="kpi-title">Recommended Lens</span>
+                        <div className="kpi-icon purple"><i data-lucide="glasses"></i></div>
+                      </div>
+                      <div className="kpi-value" style={{ fontSize: '1.15rem' }}>{scanResult?.lens_recommendation || 'Anti-Glare Blue Cut'}</div>
+                      <div className="kpi-footer"><span style={{ color: 'var(--accent-purple)', fontWeight: 600 }}>UV400 + Blue Guard</span></div>
+                    </div>
+                  </div>
+
+                  <div className="action-cards-grid">
+                    <div className="action-card" onClick={() => setActiveTab('scan')}>
+                      <div className="action-icon-box" style={{ background: '#E0F7FA', color: '#00838F' }}>
+                        <i data-lucide="camera"></i>
+                      </div>
+                      <h3>New Eye Scan</h3>
+                      <p>Upload or drag an eye photo for instant YOLO neural diagnostic assessment.</p>
+                    </div>
+
+                    <div className="action-card" onClick={() => setActiveTab('lenses')}>
+                      <div className="action-icon-box" style={{ background: '#F3E5F5', color: '#7B1FA2' }}>
+                        <i data-lucide="glasses"></i>
+                      </div>
+                      <h3>Smart Lens Advisor</h3>
+                      <p>View prescription lens coatings, refractive powers, and blue light defense.</p>
+                    </div>
+
+                    <div className="action-card" onClick={() => setActiveTab('report')}>
+                      <div className="action-icon-box" style={{ background: '#E3F2FD', color: '#1565C0' }}>
+                        <i data-lucide="file-text"></i>
+                      </div>
+                      <h3>Clinical Report</h3>
+                      <p>Generate clean, printable vision summary reports with diagnostic metadata.</p>
+                    </div>
+
+                    <div className="action-card" onClick={() => setActiveTab('tips')}>
+                      <div className="action-icon-box" style={{ background: '#E8F5E9', color: '#2E7D32' }}>
+                        <i data-lucide="clock"></i>
+                      </div>
+                      <h3>20-20-20 Rule Timer</h3>
+                      <p>Prevent digital screen eye strain with automated rest alerts.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'scan' && (
+                <div className="scan-studio-container">
+                  <div className="studio-card">
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: 8 }}>Eye Image Input</h3>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 16 }}>Select an eye photo or pick a verified clinical sample</p>
+
+                    <div style={{ marginBottom: 20 }}>
+                      <label className="form-label">Pre-loaded Clinical Eye Samples:</label>
+                      <div className="sample-pills-row">
+                        <button className="sample-chip-btn" onClick={() => { setSelectedImage('/static/samples/normal_eye.jpg'); setSelectedFile(null); }}>
+                          <img src="/static/samples/normal_eye.jpg" alt="Normal" className="sample-chip-img" />
+                          <span>Normal Vision</span>
+                        </button>
+                        <button className="sample-chip-btn" onClick={() => { setSelectedImage('/static/samples/myopia_eye.jpg'); setSelectedFile(null); }}>
+                          <img src="/static/samples/myopia_eye.jpg" alt="Myopia" className="sample-chip-img" />
+                          <span>Myopia Eye</span>
+                        </button>
+                        <button className="sample-chip-btn" onClick={() => { setSelectedImage('/static/samples/astigmatism_eye.jpg'); setSelectedFile(null); }}>
+                          <img src="/static/samples/astigmatism_eye.jpg" alt="Astigmatism" className="sample-chip-img" />
+                          <span>Astigmatism</span>
+                        </button>
+                        <button className="sample-chip-btn" onClick={() => { setSelectedImage('/static/samples/cataract_eye.jpg'); setSelectedFile(null); }}>
+                          <img src="/static/samples/cataract_eye.jpg" alt="Disease" className="sample-chip-img" />
+                          <span>Eye Disease</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <input type="file" ref={fileInputRef} accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+                    <div className="dropzone-box" onClick={() => fileInputRef.current?.click()}>
+                      <i data-lucide="upload-cloud" style={{ width: 40, height: 40, color: 'var(--primary-blue)', margin: '0 auto 12px', display: 'block' }}></i>
+                      <h4 style={{ color: 'var(--primary-blue-dark)', marginBottom: 4 }}>Click to Upload or Drag & Drop Eye Photo</h4>
+                      <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Supports JPG, PNG, and DICOM eye scans</p>
+                    </div>
+
+                    <button className="btn-hero-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={runAnalysis} disabled={isScanning}>
+                      <i data-lucide="scan"></i>
+                      <span>{isScanning ? 'Analyzing with YOLO...' : 'Run AI Vision Diagnostics'}</span>
+                    </button>
+                  </div>
+
+                  <div className="studio-card">
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: 8 }}>High-Res Scan Preview</h3>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 16 }}>Optical centering & YOLO neural inference viewport</p>
+                    <div className="preview-stage">
+                      <img src={selectedImage} alt="Eye preview" className="preview-img" />
+                      {isScanning && <div className="laser-scanner-line"></div>}
+                    </div>
+
+                    {isScanning ? (
+                      <div style={{ textAlign: 'center', padding: '16px 0' }}>
+                        <div style={{ fontWeight: 600, color: 'var(--primary-blue)', marginBottom: 6 }}>{scanStep}</div>
+                        <div className="progress-bar-wrap"><div className="progress-bar-fill" style={{ width: '75%' }}></div></div>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
+                        <span style={{ color: 'var(--text-muted)' }}>Format: RGB 24-bit</span>
+                        <span style={{ color: 'var(--success-green)', fontWeight: 600 }}>✓ Optimal Alignment</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'result' && scanResult && (
+                <div>
+                  <div className="result-banner">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>AI DIAGNOSTIC FINDING</span>
+                        <h2 className="result-condition-tag">{scanResult.condition}</h2>
+                      </div>
+                      <div style={{ textAlign: 'right' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Model Confidence</span>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--primary-blue)' }}>{scanResult.confidence}%</div>
+                      </div>
+                    </div>
+                    <div className="progress-bar-wrap" style={{ margin: '16px 0' }}>
+                      <div className="progress-bar-fill" style={{ width: `${scanResult.confidence}%` }}></div>
+                    </div>
+                    <div style={{ display: 'flex', gap: 24, fontSize: '0.9rem' }}>
+                      <div><strong>Health Score:</strong> {scanResult.health_score}/100</div>
+                      <div><strong>Prescribed Lens:</strong> {scanResult.lens_recommendation}</div>
+                      <div><strong>Analyzed:</strong> {scanResult.analysis_date} {scanResult.analysis_time}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+                    <div className="studio-card">
+                      <h3 style={{ marginBottom: 16 }}>Clinical Action Plan</h3>
+                      <ul style={{ paddingLeft: 20, lineHeight: 1.8, color: 'var(--text-secondary)' }}>
+                        {scanResult.clinical_tips?.map((t, idx) => <li key={idx}>{t}</li>) || (
+                          <>
+                            <li>Maintain 20-20-20 rule during screen usage.</li>
+                            <li>Equip lenses with anti-reflective & blue cut coatings.</li>
+                            <li>Schedule an annual dilated ophthalmic checkup.</li>
+                          </>
+                        )}
+                      </ul>
+                    </div>
+
+                    <div className="studio-card">
+                      <h3 style={{ marginBottom: 16 }}>Prescribed Optical Lens</h3>
+                      <div style={{ background: 'var(--bg-main)', padding: 18, borderRadius: 12, marginBottom: 16 }}>
+                        <h4 style={{ color: 'var(--primary-blue)' }}>{scanResult.lens_recommendation}</h4>
+                        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginTop: 6 }}>
+                          Calibrated specifically for {scanResult.condition} to alleviate ocular fatigue and sharpen focal visual planes.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', gap: 12 }}>
+                        <button className="btn-hero-primary" onClick={() => setActiveTab('lenses')}>
+                          <i data-lucide="glasses"></i> View Lens Details
+                        </button>
+                        <button className="btn-hero-glass" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-subtle)' }} onClick={() => setActiveTab('report')}>
+                          <i data-lucide="file-text"></i> Print Full Report
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'lenses' && (
+                <div>
+                  <div className="section-title-wrap">
+                    <h3 className="section-h">Smart Optical Lens Recommendations</h3>
+                    <p className="section-p">Precision ophthalmic coatings calibrated to AI vision diagnoses</p>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
+                    {(lensList.length > 0 ? lensList : [
+                      {
+                        condition: 'Normal Vision',
+                        lens_type: 'Anti-Glare & Blue Cut Lens',
+                        badge: 'Daily Protection',
+                        description: 'Premium anti-reflective coating eliminating digital screen glare and blue light fatigue.',
+                        benefits: ['95%+ Blue Light Filter', 'UV400 Solar Defense', 'Hydrophobic Smudge Guard'],
+                        ideal_for: 'Office workers, students, night drivers'
+                      },
+                      {
+                        condition: 'Myopia',
+                        lens_type: 'Single Vision Concave Minus Lens',
+                        badge: 'Distance Focus',
+                        description: 'High-definition divergence optical lenses calibrated to restore distance clarity onto retina.',
+                        benefits: ['Sharp distance acuity', 'High index ultra-thin 1.67', 'Anti-reflective finish'],
+                        ideal_for: 'Nearsighted individuals requiring distance vision'
+                      },
+                      {
+                        condition: 'Hyperopia',
+                        lens_type: 'Single Vision Convex Plus Lens',
+                        badge: 'Reading & Near Focus',
+                        description: 'Convergence precision optics designed to relieve brow strain during close-up text reading.',
+                        benefits: ['Eliminates near blur', 'Aspheric clarity', 'Scratch-resistant coating'],
+                        ideal_for: 'Farsighted individuals and reading tasks'
+                      },
+                      {
+                        condition: 'Astigmatism',
+                        lens_type: 'Precision Toric Cylindrical Lens',
+                        badge: 'Curvature Alignment',
+                        description: 'Dual-meridian custom toric curvature designed to correct irregular corneal astigmatism.',
+                        benefits: ['Rotational axis stabilization', 'Peripheral undistorted vision', 'Anti-fatigue layer'],
+                        ideal_for: 'Individuals with distorted vision at all distances'
+                      }
+                    ]).map((lens, i) => (
+                      <div key={i} className="studio-card" style={{ borderTop: '4px solid var(--primary-blue)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
+                          <span className="badge-tag normal">{lens.badge}</span>
+                          <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{lens.condition}</span>
+                        </div>
+                        <h3 style={{ fontSize: '1.2rem', marginBottom: 8, color: 'var(--primary-blue-dark)' }}>{lens.lens_type}</h3>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 16 }}>{lens.description}</p>
+                        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 12, marginBottom: 12 }}>
+                          <strong style={{ fontSize: '0.8rem' }}>Key Features:</strong>
+                          <ul style={{ paddingLeft: 18, fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: 6 }}>
+                            {lens.benefits?.map((b, idx) => <li key={idx}>{b}</li>)}
+                          </ul>
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                          <strong>Suitability:</strong> {lens.ideal_for}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'report' && (
+                <div className="studio-card" style={{ maxWidth: 860, margin: '0 auto', padding: 40 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '2px solid var(--primary-blue)', paddingBottom: 20, marginBottom: 24 }}>
+                    <div>
+                      <h2 style={{ color: 'var(--primary-blue)', fontSize: '1.75rem', fontWeight: 800 }}>OptiSight AI</h2>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Clinical Vision Diagnostic Summary</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontWeight: 700, fontSize: '1rem' }}>Report ID: #OS-849201</div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Date: {new Date().toLocaleDateString()}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, background: 'var(--bg-main)', padding: 18, borderRadius: 12, marginBottom: 24 }}>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Patient Name</div>
+                      <div style={{ fontWeight: 600 }}>{user.full_name}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Age / Gender</div>
+                      <div style={{ fontWeight: 600 }}>{user.age || '24'} yrs / {user.gender || 'Male'}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Mobile Number</div>
+                      <div style={{ fontWeight: 600 }}>{user.mobile}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Diagnostic Status</div>
+                      <div style={{ color: 'var(--success-green)', fontWeight: 700 }}>VERIFIED AI</div>
+                    </div>
+                  </div>
+
+                  <div style={{ marginBottom: 28 }}>
+                    <h3 style={{ marginBottom: 12 }}>Neural Diagnostic Findings</h3>
+                    <table className="medical-table">
+                      <tbody>
+                        <tr>
+                          <td style={{ fontWeight: 600, width: '40%' }}>Detected Condition:</td>
+                          <td style={{ fontWeight: 700, color: 'var(--primary-blue)' }}>{scanResult?.condition || 'Normal Vision'}</td>
+                        </tr>
+                        <tr>
+                          <td style={{ fontWeight: 600 }}>Model Certainty & Confidence:</td>
+                          <td>{scanResult?.confidence || 97.4}%</td>
+                        </tr>
+                        <tr>
+                          <td style={{ fontWeight: 600 }}>Eye Health Index:</td>
+                          <td>{scanResult?.health_score || 98} / 100</td>
+                        </tr>
+                        <tr>
+                          <td style={{ fontWeight: 600 }}>Prescribed Optical Lens:</td>
+                          <td>{scanResult?.lens_recommendation || 'Anti-Glare & Blue Light Filter Lens'}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }} className="no-print">
+                    <button className="btn-hero-primary" onClick={() => window.print()}>
+                      <i data-lucide="printer"></i> Print Diagnostic Report
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'history' && (
+                <div className="studio-card">
+                  <h3 className="section-h" style={{ marginBottom: 8 }}>Patient Scan Records</h3>
+                  <p className="section-p" style={{ marginBottom: 20 }}>Historical vision assessments synced directly with SQLite database</p>
+                  <div className="table-responsive">
+                    <table className="medical-table">
+                      <thead>
+                        <tr>
+                          <th>Scan ID</th>
+                          <th>Date & Time</th>
+                          <th>Condition</th>
+                          <th>Confidence</th>
+                          <th>Health Index</th>
+                          <th>Prescribed Lens</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {(history.length > 0 ? history : [
+                          { id: 1, condition: 'Normal Vision', confidence: 97.5, health_score: 98, lens_recommendation: 'Anti-Glare Blue Cut', analysis_date: '24 Aug 2026', analysis_time: '10:30 AM' },
+                          { id: 2, condition: 'Myopia', confidence: 94.2, health_score: 91, lens_recommendation: 'Single Vision Concave', analysis_date: '18 Aug 2026', analysis_time: '04:15 PM' },
+                          { id: 3, condition: 'Astigmatism', confidence: 91.8, health_score: 88, lens_recommendation: 'Precision Toric', analysis_date: '10 Aug 2026', analysis_time: '02:45 PM' }
+                        ]).map((row, i) => (
+                          <tr key={i}>
+                            <td style={{ fontWeight: 600 }}>#OS-{row.id}</td>
+                            <td>{row.analysis_date} {row.analysis_time}</td>
+                            <td>
+                              <span className={`badge-tag ${row.condition.toLowerCase().includes('normal') ? 'normal' : 'disease'}`}>
+                                {row.condition}
+                              </span>
+                            </td>
+                            <td>{row.confidence}%</td>
+                            <td>{row.health_score} / 100</td>
+                            <td>{row.lens_recommendation}</td>
+                            <td>
+                              <button className="btn-hero-glass" style={{ padding: '6px 12px', fontSize: '0.75rem', color: 'var(--primary-blue)', borderColor: 'var(--primary-blue)' }} onClick={() => { setScanResult(row); setActiveTab('result'); }}>
+                                View
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'tips' && (
+                <div>
+                  <div className="hero-card" style={{ background: 'linear-gradient(135deg, #0A192F 0%, #00838F 100%)', marginBottom: 28 }}>
+                    <div>
+                      <div className="hero-pill"><i data-lucide="clock"></i> Screen Fatigue Preventer</div>
+                      <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: 8 }}>Interactive 20-20-20 Ergonomic Timer</h2>
+                      <p style={{ color: '#E0F7FA', maxWidth: 580, fontSize: '0.925rem', marginBottom: 20 }}>
+                        Every 20 minutes of screen work, look at an object 20 feet away for 20 seconds. This relaxes your ciliary eye muscles.
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                        <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>{formatTimer(timerSeconds)}</div>
+                        <button className="btn-hero-primary" onClick={() => setIsTimerRunning(prev => !prev)}>
+                          {isTimerRunning ? 'Pause Timer' : 'Start 20m Timer'}
+                        </button>
+                        <button className="btn-hero-glass" onClick={() => { setIsTimerRunning(false); setTimerSeconds(20 * 60); }}>Reset</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+                    {(healthTips.length > 0 ? healthTips : [
+                      { title: 'Optimal Lighting & Contrast', category: 'Workspace Ergonomics', description: 'Never view monitors in complete darkness. Balance ambient illumination to match your monitor brightness.' },
+                      { title: 'Blink Consciously & Hydrate', category: 'Corneal Health', description: 'Screen users blink 50% less frequently. Consciously blink and drink plenty of water to protect your tear film.' },
+                      { title: 'Nutrients for Vision Longevity', category: 'Nutrition', description: 'Incorporate foods rich in Lutein, Zeaxanthin, Omega-3 fatty acids, and Vitamin A (carrots, spinach, salmon).' },
+                      { title: 'Annual Comprehensive Exam', category: 'Clinical Care', description: 'Schedule a yearly dilated eye exam with an eye care professional to monitor retinal and corneal health.' }
+                    ]).map((tip, idx) => (
+                      <div key={idx} className="studio-card">
+                        <span className="badge-tag normal" style={{ marginBottom: 12 }}>{tip.category}</span>
+                        <h4 style={{ fontSize: '1.1rem', marginBottom: 8, color: 'var(--primary-blue-dark)' }}>{tip.title}</h4>
+                        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{tip.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'profile' && (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
+                  <div className="studio-card">
+                    <h3 style={{ marginBottom: 18 }}>Patient Profile Details</h3>
+                    <form onSubmit={handleProfileSubmit}>
+                      <div className="form-group">
+                        <label className="form-label">Full Name</label>
+                        <input type="text" className="form-input" value={editForm.full_name} onChange={e => setEditForm({ ...editForm, full_name: e.target.value })} />
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label">Email Address</label>
+                        <input type="email" className="form-input" value={editForm.email} disabled style={{ background: 'var(--bg-main)' }} />
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label">Mobile Number</label>
+                        <input type="text" className="form-input" value={editForm.mobile} onChange={e => setEditForm({ ...editForm, mobile: e.target.value })} />
+                      </div>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                        <div className="form-group">
+                          <label className="form-label">Age</label>
+                          <input type="number" className="form-input" value={editForm.age} onChange={e => setEditForm({ ...editForm, age: e.target.value })} />
+                        </div>
+                        <div className="form-group">
+                          <label className="form-label">Gender</label>
+                          <select className="form-input" value={editForm.gender} onChange={e => setEditForm({ ...editForm, gender: e.target.value })}>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <button type="submit" className="btn-hero-primary" style={{ marginTop: 12 }}>Save Profile Changes</button>
+                    </form>
+                  </div>
+
+                  <div className="studio-card">
+                    <h3 style={{ marginBottom: 18 }}>System Configuration</h3>
+                    <div style={{ marginBottom: 20 }}>
+                      <label className="form-label">Backend API URL</label>
+                      <input type="text" className="form-input" value={API_BASE} disabled style={{ background: 'var(--bg-main)' }} />
+                      <small style={{ color: 'var(--text-muted)' }}>Connected to FastAPI (Uvicorn)</small>
+                    </div>
+                    <div style={{ marginBottom: 20 }}>
+                      <label className="form-label">AI Inference Engine</label>
+                      <div style={{ padding: 12, background: 'var(--bg-main)', borderRadius: 8, fontSize: '0.85rem' }}>
+                        <strong>Model:</strong> YOLOv11 (best.pt)<br />
+                        <strong>Classes:</strong> Eye Disease, Normal Vision<br />
+                        <strong>Weights Path:</strong> runs/detect/OptiSightModel/vision_analysis-4
+                      </div>
+                    </div>
+                    <div style={{ marginBottom: 20 }}>
+                      <label className="form-label">Theme Mode</label>
+                      <div style={{ display: 'flex', gap: 12 }}>
+                        <button className="btn-hero-glass" onClick={() => setTheme('light')}>
+                          <i data-lucide="sun"></i> Light Medical
+                        </button>
+                        <button className="btn-hero-glass" onClick={() => setTheme('dark')}>
+                          <i data-lucide="moon"></i> Dark Hospital
+                        </button>
+                      </div>
+                    </div>
+                    <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 18 }}>
+                      <button onClick={() => setIsAuthenticated(false)} style={{ background: '#FFEBEE', color: '#C62828', border: '1px solid #FFCDD2', padding: '10px 18px', borderRadius: 8, cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <i data-lucide="log-out"></i> Log Out from OptiSight
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </main>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

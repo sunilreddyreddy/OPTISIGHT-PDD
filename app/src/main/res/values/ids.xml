@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="etOtp1" type="id" />
+    <item name="etOtp2" type="id" />
+    <item name="etOtp3" type="id" />
+    <item name="etOtp4" type="id" />
+    <item name="etOtp5" type="id" />
+    <item name="etOtp6" type="id" />
+    <item name="btnVerify" type="id" />
+    <item name="tvTimer" type="id" />
+    <item name="tvResend" type="id" />
+    <item name="tvChangeEmail" type="id" />
+    <item name="pbVerify" type="id" />
+    <item name="vPulse" type="id" />
+    <item name="vFloat1" type="id" />
+    <item name="vFloat2" type="id" />
+    <item name="otpCard" type="id" />
+    <item name="tvTitle" type="id" />
+    <item name="tvSubtitle" type="id" />
+    <item name="tvDescription" type="id" />
+    <item name="btnBack" type="id" />
+</resources>

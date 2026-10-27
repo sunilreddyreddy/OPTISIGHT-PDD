@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorSecondary">@color/secondary_cyan</item>
+        <item name="colorPrimaryContainer">@color/medical_light_blue</item>
+        <item name="colorOnPrimaryContainer">@color/primary_blue</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/dark_navy</item>
+        <item name="android:statusBarColor">@color/grad_start</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="OtpEditTextStyle">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@drawable/bg_otp_box</item>
+        <item name="android:gravity">center</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CircleImage">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

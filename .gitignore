@@ -1,0 +1,46 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Gradle files
+.gradle/
+build/
+app/build/
+
+# Android Studio / IntelliJ files
+.idea/
+*.iml
+.kotlin/
+
+# Secrets & local config
+local.properties
+.env
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Node.js dependencies
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Raw datasets
+Dataset/
+
+# YOLO training runs (keep only active trained model weights)
+runs/*
+!runs/detect/
+!runs/detect/OptiSightModel/
+!runs/detect/OptiSightModel/vision_analysis-4/
+!runs/detect/OptiSightModel/vision_analysis-4/weights/
+!runs/detect/OptiSightModel/vision_analysis-4/weights/best.pt

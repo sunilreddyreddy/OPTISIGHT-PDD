@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Responsive Layout Guide -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <!-- LEFT SECTION (Visual / Illustration) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/visualSection"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_login_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/glVertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <!-- This section is for desktop/landscape layouts -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- MAIN CONTENT CONTAINER (Stackable) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Background Elements for Mobile Header Area -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="420dp"
+                    android:background="@drawable/bg_login_gradient"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Content Area -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Logo & Branding -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_optisight_logo"
+                        app:drawableTint="@color/white" />
+
+                    <!-- Illustration Area (Futuristic Eye) -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:layout_marginTop="24dp">
+
+                        <!-- AI Scanning Rings -->
+                        <View
+                            android:id="@+id/vScanner"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:alpha="0.3"
+                            android:background="@drawable/bg_circular_progress" />
+
+                        <ImageView
+                            android:id="@+id/ivEyeIllustration"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_eye"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/ai_eye_illustration" />
+
+                        <!-- Floating Elements -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="top|end"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="60dp"
+                            android:alpha="0.6"
+                            android:src="@drawable/ic_scan"
+                            app:tint="@color/secondary_cyan"
+                            android:contentDescription="@string/feature_icon" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom|start"
+                            android:layout_marginBottom="40dp"
+                            android:layout_marginStart="60dp"
+                            android:alpha="0.6"
+                            android:src="@drawable/ic_glasses"
+                            app:tint="@color/accent_purple"
+                            android:contentDescription="@string/feature_icon" />
+                    </FrameLayout>
+
+                    <!-- Tagline & Description -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/tagline_main"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/description_main"
+                        android:textColor="@color/glass_white"
+                        android:textSize="14sp" />
+
+                    <!-- Login Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/loginCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="32dp"
+                        app:cardElevation="12dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="32dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/signin_title"
+                                android:textColor="@color/health_text_dark"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/signin_desc"
+                                android:textColor="@color/gray_text"
+                                android:textSize="14sp" />
+
+                            <!-- Email Field -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilEmail"
+                                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="32dp"
+                                android:hint="@string/email_hint"
+                                app:boxCornerRadiusBottomEnd="16dp"
+                                app:boxCornerRadiusBottomStart="16dp"
+                                app:boxCornerRadiusTopEnd="16dp"
+                                app:boxCornerRadiusTopStart="16dp"
+                                app:startIconDrawable="@android:drawable/ic_dialog_email"
+                                app:startIconTint="@color/health_primary_blue">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etEmail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textEmailAddress"
+                                    android:paddingVertical="16dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Password Field -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilPassword"
+                                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:hint="@string/password_hint"
+                                app:boxCornerRadiusBottomEnd="16dp"
+                                app:boxCornerRadiusBottomStart="16dp"
+                                app:boxCornerRadiusTopEnd="16dp"
+                                app:boxCornerRadiusTopStart="16dp"
+                                app:passwordToggleEnabled="true"
+                                app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                                app:startIconTint="@color/health_primary_blue">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etPassword"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPassword"
+                                    android:paddingVertical="16dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp">
+
+                                <CheckBox
+                                    android:id="@+id/cbRememberMe"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/remember_me"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/tvForgotPassword"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/forgot_password"
+                                    android:textColor="@color/health_primary_blue"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!-- Sign In Button -->
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="32dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnLogin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:backgroundTint="@color/health_primary_blue"
+                                    android:text="@string/signin_button"
+                                    android:textAllCaps="false"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="16dp" />
+
+                                <ProgressBar
+                                    android:id="@+id/pbLoading"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:indeterminateTint="@color/white"
+                                    android:visibility="gone" />
+                            </FrameLayout>
+
+                            <!-- Divider -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+                                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="@color/divider_color" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:text="@string/or_divider" android:textColor="@color/gray_text" android:textSize="12sp" />
+                                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="@color/divider_color" />
+                            </LinearLayout>
+
+                            <!-- Google Login -->
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnGoogle"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:layout_marginTop="24dp"
+                                android:text="@string/google_signin"
+                                android:textAllCaps="false"
+                                android:textColor="@color/health_text_dark"
+                                app:cornerRadius="16dp"
+                                app:icon="@android:drawable/ic_menu_search"
+                                app:iconTint="@color/google_red" />
+
+                            <!-- Create Account -->
+                            <LinearLayout
+                                android:id="@+id/llSignUp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="24dp"
+                                android:orientation="horizontal">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dont_have_account" android:textColor="@color/gray_text" />
+                                <TextView android:id="@+id/tvSignUp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/create_account_link" android:textColor="@color/health_primary_blue" android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Footer -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/secure_encryption"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@android:drawable/ic_lock_lock"
+                        app:drawableTint="@color/gray_text"
+                        android:drawablePadding="6dp"/>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

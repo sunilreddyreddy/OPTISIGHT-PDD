@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Palette -->
+    <color name="primary_blue">#1565C0</color>
+    <color name="secondary_cyan">#00E5FF</color>
+    <color name="accent_purple">#9C27B0</color>
+    <color name="background_light">#F0FAFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="glass_white">#CCFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_text">#666666</color>
+    <color name="dark_navy">#0A192F</color>
+    <color name="divider_color">#E0E0E0</color>
+    <color name="google_red">#DB4437</color>
+    <color name="login_bg">#F0FAFF</color>
+
+    <!-- Healthcare Theme Colors -->
+    <color name="health_bg_cyan">#F0FAFF</color>
+    <color name="health_primary_blue">#1565C0</color>
+    <color name="health_accent_sky">#29B6F6</color>
+    <color name="health_success_green">#4CAF50</color>
+    <color name="health_text_dark">#0A192F</color>
+
+    <!-- Modern Health Theme Colors -->
+    <color name="health_bg">#F0FAFF</color>
+    <color name="health_blue">#1565C0</color>
+    <color name="health_green">#4CAF50</color>
+    <color name="health_light_blue">#E3F2FD</color>
+    <color name="health_light_green">#E8F5E9</color>
+    <color name="health_text_main">#212121</color>
+    <color name="health_text_sub">#757575</color>
+
+    <!-- OptiSight Branding Colors -->
+    <color name="optisight_deep_blue">#1A237E</color>
+    <color name="optisight_cyan">#00E5FF</color>
+    <color name="optisight_navy">#0D47A1</color>
+    <color name="optisight_white">#FFFFFF</color>
+
+    <!-- Dashboard Specific Gradients -->
+    <color name="hero_grad_start">#1565C0</color>
+    <color name="hero_grad_end">#0A192F</color>
+    <color name="action_cyan_start">#E0F7FA</color>
+    <color name="action_cyan_end">#B2EBF2</color>
+    <color name="action_blue_start">#E3F2FD</color>
+    <color name="action_blue_end">#BBDEFB</color>
+    <color name="action_purple_start">#F3E5F5</color>
+    <color name="action_purple_end">#E1BEE7</color>
+    <color name="action_green_start">#E8F5E9</color>
+    <color name="action_green_end">#C8E6C9</color>
+
+    <!-- Gradient Colors -->
+    <color name="grad_start">#1565C0</color>
+    <color name="grad_center">#29B6F6</color>
+    <color name="grad_end">#9C27B0</color>
+
+    <!-- Futuristic Theme Colors -->
+    <color name="futuristic_dark_purple">#1A0B2E</color>
+    <color name="neon_cyan">#00E5FF</color>
+    <color name="neon_purple">#B026FF</color>
+    <color name="glass_black">#CC000000</color>
+    <color name="glass_purple">#662D1B4E</color>
+    <color name="card_grad_start">#3D216B</color>
+    <color name="card_grad_end">#1A0B2E</color>
+
+    <!-- Medical Theme Colors -->
+    <color name="medical_blue">#1565C0</color>
+    <color name="medical_light_blue">#E3F2FD</color>
+    <color name="medical_bg">#FFFFFF</color>
+    <color name="medical_card_bg">#F8FBFF</color>
+    <color name="medical_success">#4CAF50</color>
+    <color name="medical_text_primary">#212121</color>
+    <color name="medical_text_secondary">#757575</color>
+</resources>

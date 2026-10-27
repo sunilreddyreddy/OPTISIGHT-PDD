@@ -1,0 +1,128 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Subtle Background Glow -->
+    <path android:pathData="M50,50m-48,0a48,48 0,1 1,96 0a48,48 0,1 1,-96 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="50"
+                android:centerY="50"
+                android:gradientRadius="48"
+                android:type="radial">
+                <item android:color="#2600E5FF" android:offset="0.0" />
+                <item android:color="#0000E5FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Main Eye Shape (Sclera) -->
+    <path
+        android:pathData="M5,50 C5,50 25,15 50,15 C75,15 95,50 95,50 C95,50 75,85 50,85 C25,85 5,50 5,50 Z"
+        android:strokeWidth="2.5"
+        android:strokeColor="#1A237E"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Digital Iris Outer Boundary -->
+    <path
+        android:pathData="M50,50m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0"
+        android:strokeWidth="0.5"
+        android:strokeColor="#00E5FF"
+        android:strokeAlpha="0.3" />
+
+    <!-- Main Iris with Tech Gradient -->
+    <path
+        android:pathData="M50,50m-23,0a23,23 0,1 1,46 0a23,23 0,1 1,-46 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="50"
+                android:centerY="50"
+                android:gradientRadius="23"
+                android:type="radial">
+                <item android:color="#00E5FF" android:offset="0.0" />
+                <item android:color="#0D47A1" android:offset="0.6" />
+                <item android:color="#1A237E" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Scanner Ring 1 (Top Right) -->
+    <path
+        android:pathData="M50,28 A22,22 0 0,1 72,50"
+        android:strokeWidth="1.2"
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.5"
+        android:strokeLineCap="round" />
+
+    <!-- Scanner Ring 2 (Bottom Left) -->
+    <path
+        android:pathData="M50,72 A22,22 0 0,1 28,50"
+        android:strokeWidth="1.2"
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.5"
+        android:strokeLineCap="round" />
+
+    <!-- AI Circuit Nodes and Lines -->
+    <group>
+        <!-- Horizontal/Vertical Lines -->
+        <path
+            android:pathData="M50,32 V40 M50,60 V68 M32,50 H40 M60,50 H68"
+            android:strokeWidth="0.8"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.7"
+            android:strokeLineCap="round" />
+
+        <!-- Diagonal Lines -->
+        <path
+            android:pathData="M37,37 L42,42 M63,63 L58,58 M37,63 L42,58 M63,37 L58,42"
+            android:strokeWidth="0.8"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.7"
+            android:strokeLineCap="round" />
+
+        <!-- Circular Nodes -->
+        <path android:fillColor="#00E5FF" android:pathData="M50,31m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M50,69m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M31,50m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M69,50m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0" />
+    </group>
+
+    <!-- Central Pupil (Deep Space / AI Core) -->
+    <path
+        android:fillColor="#0A192F"
+        android:pathData="M50,50m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+
+    <!-- AI Chip Core (Square with internal cross) -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M46,46h8v8h-8z" />
+
+    <path
+        android:strokeWidth="0.6"
+        android:strokeColor="#FFFFFF"
+        android:pathData="M48,50 H52 M50,48 V52" />
+
+    <!-- Premium Glass Reflections -->
+    <path
+        android:pathData="M35,35 C40,30 50,30 55,35"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.2"
+        android:strokeLineCap="round" />
+
+    <path
+        android:pathData="M65,65m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.3" />
+
+    <!-- Vision Analysis Beam (Subtle scan line) -->
+    <path
+        android:pathData="M15,50 H85"
+        android:strokeWidth="0.5"
+        android:strokeColor="#00E5FF"
+        android:strokeAlpha="0.2" />
+
+</vector>

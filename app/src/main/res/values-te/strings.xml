@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">ఆప్టిసైట్</string>
+    <string name="optisight_tagline">స్మార్ట్ విజన్ అనాలిసిస్</string>
+    <string name="welcome_back">తిరిగి స్వాగతం</string>
+    <string name="signin_subtitle">మీ స్మార్ట్ విజన్ ప్రయాణాన్ని కొనసాగించడానికి సైన్ ఇన్ చేయండి</string>
+    <string name="email_hint">ఈమెయిల్ చిరునామా</string>
+    <string name="password_hint">పాస్‌వర్డ్</string>
+    <string name="remember_me">నన్ను గుర్తుంచుకో</string>
+    <string name="forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="login_button">లాగిన్</string>
+    <string name="or_divider">లేదా</string>
+    <string name="continue_with_google">గూగుల్‌తో కొనసాగండి</string>
+    <string name="continue_with_phone">ఫోన్ నంబర్‌తో కొనసాగండి</string>
+    <string name="dont_have_account">ఖాతా లేదా? </string>
+    <string name="sign_up">సైన్ అప్</string>
+    <string name="ai_vision_footer">AI విజన్ టెక్నాలజీతో పనిచేస్తుంది</string>
+    <string name="secure_login">సురక్షిత లాగిన్</string>
+    <string name="create_account_title">మీ ఖాతాను సృష్టించండి</string>
+    <string name="signup_subtitle">ఆప్టిసైట్‌లో చేరండి మరియు మీ స్మార్ట్ విజన్ ప్రయాణాన్ని ప్రారంభించండి</string>
+    <string name="full_name_hint">పూర్తి పేరు</string>
+    <string name="mobile_number_hint">మొబైల్ నంబర్</string>
+    <string name="confirm_password_hint">పాస్‌వర్డ్‌ను నిర్ధారించండి</string>
+    <string name="terms_conditions">నేను నిబంధనలు మరియు షరతులకు అంగీకరిస్తున్నాను</string>
+    <string name="create_account_button">ఖాతాను సృష్టించు</string>
+    <string name="already_have_account">ముందే ఖాతా ఉందా? </string>
+    <string name="login">లాగిన్</string>
+    <string name="error_fullname_required">పూర్తి పేరు తప్పనిసరి</string>
+    <string name="error_email_required">ఈమెయిల్ తప్పనిసరి</string>
+    <string name="error_password_required">పాస్‌వర్డ్ తప్పనిసరి</string>
+    <string name="account_created">ఖాతా విజయవంతంగా సృష్టించబడింది!</string>
+    <string name="login_success">ఆప్టిసైట్‌కు స్వాగతం!</string>
+
+    <string name="welcome_intro">ఆప్టిసైట్‌కు స్వాగతం</string>
+    <string name="intro_subtitle">కృత్రిమ మేధస్సుతో పనిచేసే స్మార్ట్ విజన్ అనాలిసిస్</string>
+    <string name="get_started">ప్రారంభించండి</string>
+    <string name="skip_button">స్కిప్</string>
+    <string name="back">వెనుకకు</string>
+    <string name="next">తరువాత</string>
+
+    <!-- Home Dashboard -->
+    <string name="welcome_sunil">స్వాగతం, సునీల్ 👋</string>
+    <string name="home_subtitle">ఈరోజు మీ కంటి చూపు గురించి జాగ్రత్త తీసుకుందాం</string>
+    <string name="smart_vision_analysis_title">స్మార్ట్ విజన్ అనాలిసిస్</string>
+    <string name="upload_eye_image">కంటి చిత్రాన్ని అప్‌లోడ్ చేయండి</string>
+    <string name="vision_analysis">విజన్ అనాలిసిస్</string>
+    <string name="lens_recommendation">లెన్స్ సూచన</string>
+    <string name="vision_reports">విజన్ రిపోర్ట్స్</string>
+    <string name="eye_health_tips">కంటి ఆరోగ్య చిట్కాలు</string>
+    <string name="dashboard_subtitle">ఈరోజు మీ కంటి చూపు ఎలా ఉంది?</string>
+
+    <!-- Bottom Nav -->
+    <string name="nav_home">హోమ్</string>
+    <string name="nav_analysis">అనాలిసిస్</string>
+    <string name="nav_reports">రిపోర్ట్స్</string>
+    <string name="nav_profile">ప్రొఫైల్</string>
+
+    <string name="profile_title">నా ప్రొఫైల్</string>
+    <string name="edit_profile_title">ప్రొఫైల్ సవరించండి</string>
+    <string name="settings_title">సెట్టింగ్స్</string>
+    <string name="language_settings">భాష సెట్టింగ్స్</string>
+    <string name="current_language_prefix">ప్రస్తుత భాష: </string>
+    <string name="language_changed">భాష విజయవంతంగా మార్చబడింది</string>
+    <string name="logout_action">లాగౌట్</string>
+    <string name="app_settings_label">యాప్ సెట్టింగ్స్</string>
+    <string name="reminders_label">రిమైండర్లు</string>
+    <string name="privacy_security_label">గోప్యత మరియు భద్రత</string>
+    <string name="data_support_label">డేటా మరియు మద్దతు</string>
+
+    <string name="eye_health_tips_title_screen">కంటి ఆరోగ్య చిట్కాలు</string>
+    <string name="save_changes">మార్పులను సేవ్ చేయండి</string>
+    <string name="ok">సరే</string>
+    <string name="cancel_action">రద్దు చేయి</string>
+</resources>

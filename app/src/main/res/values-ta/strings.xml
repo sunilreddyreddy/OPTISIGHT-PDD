@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">ஆப்டிசைட்</string>
+    <string name="optisight_tagline">ஸ்மார்ட் பார்வை பகுப்பாய்வு</string>
+    <string name="welcome_back">மீண்டும் வருக</string>
+    <string name="signin_subtitle">உங்கள் ஸ்மார்ட் பார்வை பயணத்தைத் தொடர உள்நுழைக</string>
+    <string name="email_hint">மின்னஞ்சல் முகவரி</string>
+    <string name="password_hint">கடவுச்சொல்</string>
+    <string name="remember_me">என்னை நினைவில் கொள்</string>
+    <string name="forgot_password">கடவுச்சொல்லை மறந்துவிட்டீர்களா?</string>
+    <string name="login_button">உள்நுழைவு</string>
+    <string name="or_divider">அல்லது</string>
+    <string name="continue_with_google">கூகுள் மூலம் தொடரவும்</string>
+    <string name="continue_with_phone">தொலைபேசி எண் மூலம் தொடரவும்</string>
+    <string name="dont_have_account">கணக்கு இல்லையா? </string>
+    <string name="sign_up">பதிவு செய்க</string>
+    <string name="ai_vision_footer">AI பார்வை தொழில்நுட்பத்தால் இயக்கப்படுகிறது</string>
+    <string name="secure_login">பாதுகாப்பான உள்நுழைவு</string>
+    <string name="create_account_title">உங்கள் கணக்கை உருவாக்கவும்</string>
+    <string name="signup_subtitle">ஆப்டிசைட்டில் சேர்ந்து உங்கள் ஸ்மார்ட் பார்வை பயணத்தைத் தொடங்குங்கள்</string>
+    <string name="full_name_hint">முழு பெயர்</string>
+    <string name="mobile_number_hint">தொலைபேசி எண்</string>
+    <string name="confirm_password_hint">கடவுச்சொல்லை உறுதிப்படுத்தவும்</string>
+    <string name="terms_conditions">விதிமுறைகள் மற்றும் நிபந்தனைகளை நான் ஏற்கிறேன்</string>
+    <string name="create_account_button">கணக்கை உருவாக்கு</string>
+    <string name="already_have_account">ஏற்கனவே கணக்கு உள்ளதா? </string>
+    <string name="login">உள்நுழைவு</string>
+    <string name="error_fullname_required">முழு பெயர் அவசியம்</string>
+    <string name="error_email_required">மின்னஞ்சல் அவசியம்</string>
+    <string name="error_password_required">கடவுச்சொல் அவசியம்</string>
+    <string name="account_created">கணக்கு வெற்றிகரமாக உருவாக்கப்பட்டது!</string>
+    <string name="login_success">ஆப்டிசைட்டிற்கு உங்களை வரவேற்கிறோம்!</string>
+
+    <string name="welcome_intro">ஆப்டிசைட்டிற்கு உங்களை வரவேற்கிறோம்</string>
+    <string name="intro_subtitle">செயற்கை நுண்ணறிவால் இயக்கப்படும் ஸ்மார்ட் பார்வை பகுப்பாய்வு</string>
+    <string name="get_started">தொடங்குங்கள்</string>
+    <string name="skip_button">தவிர்</string>
+    <string name="back">பின்னால்</string>
+    <string name="next">அடுத்தது</string>
+
+    <!-- Home Dashboard -->
+    <string name="welcome_sunil">வரவேற்கிறோம், சுனில் 👋</string>
+    <string name="home_subtitle">இன்று உங்கள் பார்வையை கவனிப்போம்</string>
+    <string name="smart_vision_analysis_title">ஸ்மார்ட் பார்வை பகுப்பாய்வு</string>
+    <string name="upload_eye_image">கண் படத்தை பதிவேற்றவும்</string>
+    <string name="vision_analysis">பார்வை பகுப்பாய்வு</string>
+    <string name="lens_recommendation">லென்ஸ் பரிந்துரை</string>
+    <string name="vision_reports">பார்வை அறிக்கைகள்</string>
+    <string name="eye_health_tips">கண் சுகாதார குறிப்புகள்</string>
+    <string name="dashboard_subtitle">இன்று உங்கள் பார்வை எப்படி இருக்கிறது?</string>
+
+    <!-- Bottom Nav -->
+    <string name="nav_home">முகப்பு</string>
+    <string name="nav_analysis">பகுப்பாய்வு</string>
+    <string name="nav_reports">அறிக்கைகள்</string>
+    <string name="nav_profile">சுயவிவரம்</string>
+
+    <string name="profile_title">எனது சுயவிவரம்</string>
+    <string name="edit_profile_title">சுயவிவரத்தைத் திருத்து</string>
+    <string name="settings_title">அமைப்புகள்</string>
+    <string name="language_settings">மொழி அமைப்புகள்</string>
+    <string name="current_language_prefix">தற்போதைய மொழி: </string>
+    <string name="language_changed">மொழி வெற்றிகரமாக மாற்றப்பட்டது</string>
+    <string name="logout_action">வெளியேறு</string>
+    <string name="app_settings_label">பயன்பாட்டு அமைப்புகள்</string>
+    <string name="reminders_label">நினைவூட்டல்கள்</string>
+    <string name="privacy_security_label">தனியுரிமை மற்றும் பாதுகாப்பு</string>
+    <string name="data_support_label">தரவு மற்றும் ஆதரவு</string>
+
+    <string name="eye_health_tips_title_screen">கண் சுகாதார குறிப்புகள்</string>
+    <string name="save_changes">மாற்றங்களைச் சேமிக்கவும்</string>
+    <string name="ok">சரி</string>
+    <string name="cancel_action">ரத்துசெய்</string>
+</resources>

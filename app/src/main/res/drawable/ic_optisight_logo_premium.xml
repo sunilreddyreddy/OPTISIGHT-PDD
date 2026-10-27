@@ -1,0 +1,117 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- Outer Glow (Futuristic Aura) -->
+    <path android:pathData="M256,256m-240,0a240,240 0,1 1,480 0a240,240 0,1 1,-480 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="256"
+                android:centerY="256"
+                android:gradientRadius="240"
+                android:type="radial">
+                <item android:color="#3300E5FF" android:offset="0.0" />
+                <item android:color="#0000E5FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Main Eye Outline (Deep Navy) -->
+    <path
+        android:pathData="M30,256 C30,256 120,80 256,80 C392,80 482,256 482,256 C482,256 392,432 256,432 C120,432 30,256 30,256 Z"
+        android:strokeWidth="10"
+        android:strokeColor="#1A237E"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Digital Iris (Outer Ring) -->
+    <path
+        android:pathData="M256,256m-130,0a130,130 0,1 1,260 0a130,130 0,1 1,-260 0"
+        android:strokeWidth="4"
+        android:strokeColor="#00E5FF"
+        android:strokeAlpha="0.3" />
+
+    <!-- Main Iris with Multi-tone Gradient -->
+    <path
+        android:pathData="M256,256m-115,0a115,115 0,1 1,230 0a115,115 0,1 1,-230 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="256"
+                android:centerY="256"
+                android:gradientRadius="115"
+                android:type="radial">
+                <item android:color="#00E5FF" android:offset="0.0" />
+                <item android:color="#0D47A1" android:offset="0.6" />
+                <item android:color="#1A237E" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Scanner Rings (Partial Arcs) -->
+    <path
+        android:pathData="M256,150 A106,106 0 0,1 362,256 M256,362 A106,106 0 0,1 150,256"
+        android:strokeWidth="6"
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.4"
+        android:strokeLineCap="round" />
+
+    <!-- AI Circuit Matrix -->
+    <group>
+        <path
+            android:pathData="M256,170 V210 M256,302 V342 M170,256 H210 M302,256 H342"
+            android:strokeWidth="4"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M195,195 L220,220 M317,317 L292,292 M195,317 L220,292 M317,195 L292,220"
+            android:strokeWidth="4"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.6"
+            android:strokeLineCap="round" />
+
+        <!-- Nodes -->
+        <path android:fillColor="#00E5FF" android:pathData="M256,165m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M256,347m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M165,256m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+        <path android:fillColor="#00E5FF" android:pathData="M347,256m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    </group>
+
+    <!-- Pupil (Core Processor) -->
+    <path
+        android:fillColor="#0A192F"
+        android:pathData="M256,256m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+
+    <!-- AI Chip Symbol (Center) -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M236,236h40v40h-40z" />
+
+    <path
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:pathData="M246,256 H266 M256,246 V266" />
+
+    <!-- Premium Glass Glint -->
+    <path
+        android:pathData="M180,180 C205,155 307,155 332,180"
+        android:strokeWidth="15"
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.15"
+        android:strokeLineCap="round" />
+
+    <path
+        android:pathData="M330,330m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.2" />
+
+    <!-- Horizontal Scan Line -->
+    <path
+        android:pathData="M80,256 H432"
+        android:strokeWidth="2"
+        android:strokeColor="#00E5FF"
+        android:strokeAlpha="0.25" />
+
+</vector>
